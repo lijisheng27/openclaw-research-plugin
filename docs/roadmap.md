@@ -25,15 +25,19 @@ Deliverables:
 
 ### Phase 1
 
-Implement the research loop as plugin-owned modules.
+Implement the minimal research loop as plugin-owned modules.
 
 Deliverables:
 
-- planner contract
-- executor adapters
-- verifier contract
-- judge contract
-- task state transitions
+- `paper_ingest` contract
+- `task_orchestrator` contract
+- `code_generator` contract
+- `sandbox_run` adapter
+- `validator` contract
+- `trace_recorder` contract
+- `report_build` contract
+- `vtkjs_validate` adapter
+- unified `TaskGraph`, `ThinkActionTrace`, `SandboxRunResult`, and `EvalRecord` schemas
 
 ### Phase 2
 

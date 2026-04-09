@@ -1,9 +1,11 @@
 import { Type } from "@sinclair/typebox";
 import { buildResearchPluginSummary } from "../services/plugin-architecture.js";
+import { createJsonToolResult } from "./tool-result.js";
 
 export function createResearchStatusTool() {
   return {
     name: "research_plugin_status",
+    label: "Research Plugin Status",
     description: "Summarize the current plugin-first scientific workflow roadmap.",
     parameters: Type.Object({
       includeMilestones: Type.Optional(
@@ -19,20 +21,14 @@ export function createResearchStatusTool() {
           ? {
               pluginId: summary.pluginId,
               strategy: summary.strategy,
+              currentStage: summary.currentStage,
+              registeredModules: summary.registeredModules,
               decisions: summary.decisions,
               phases: summary.phases,
             }
           : summary;
 
-      return {
-        content: [
-          {
-            type: "text",
-            text: JSON.stringify(payload, null, 2),
-          },
-        ],
-      };
+      return createJsonToolResult(payload);
     },
   };
 }
-
