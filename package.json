@@ -1,0 +1,33 @@
+{
+  "name": "openclaw-research-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plugin-first scientific workflow extension for OpenClaw",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.4.9"
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "0.34.49",
+    "openclaw": "^2026.4.9",
+    "typescript": "^6.0.2"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.4.9",
+      "minGatewayVersion": ">=2026.4.9"
+    },
+    "build": {
+      "openclawVersion": "2026.4.9",
+      "pluginSdkVersion": "2026.4.9"
+    }
+  }
+}
+

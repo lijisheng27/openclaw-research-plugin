@@ -1,0 +1,60 @@
+{
+  "id": "research-plugin",
+  "name": "Research Plugin",
+  "description": "Scientific workflow orchestration plugin for OpenClaw",
+  "uiHints": {
+    "defaultSandboxProfile": {
+      "label": "Default Sandbox Profile",
+      "help": "Sandbox profile used by validation and execution stages.",
+      "placeholder": "docker-research"
+    },
+    "ragIndexRoot": {
+      "label": "RAG Index Root",
+      "help": "Absolute path for vector indexes and document caches.",
+      "placeholder": "C:/data/openclaw-rag"
+    },
+    "taskGraphStore": {
+      "label": "Task Graph Store",
+      "help": "Path for task-graph snapshots and execution traces.",
+      "placeholder": "C:/data/openclaw-task-graph"
+    },
+    "vtkSceneOutputDir": {
+      "label": "VTK Scene Output Directory",
+      "help": "Directory used to export intermediate scene artifacts for vtk.js verification.",
+      "placeholder": "C:/data/openclaw-vtk"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "defaultSandboxProfile": {
+        "type": "string"
+      },
+      "ragIndexRoot": {
+        "type": "string"
+      },
+      "taskGraphStore": {
+        "type": "string"
+      },
+      "vtkSceneOutputDir": {
+        "type": "string"
+      },
+      "enabledModules": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "orchestrator",
+            "rag",
+            "validator",
+            "task-graph",
+            "visualization",
+            "vtk"
+          ]
+        }
+      }
+    }
+  }
+}
+

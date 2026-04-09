@@ -1,0 +1,34 @@
+export const RESEARCH_PLUGIN_PHASES = [
+  {
+    id: "phase-0",
+    title: "Bootstrap plugin repo",
+    focus: "Keep changes outside OpenClaw core and establish a stable plugin contract.",
+  },
+  {
+    id: "phase-1",
+    title: "Orchestrator loop",
+    focus: "Implement planner -> executor -> verifier -> judge as plugin-owned services.",
+  },
+  {
+    id: "phase-2",
+    title: "RAG and task graph",
+    focus: "Add retrieval memory, persistent task graph snapshots, and trace replay.",
+  },
+  {
+    id: "phase-3",
+    title: "Sandboxed validation",
+    focus: "Run validation in Docker or cloud sandboxes with sub-agent execution paths.",
+  },
+  {
+    id: "phase-4",
+    title: "Visualization bridge",
+    focus: "Reuse OpenClaw Dashboard, Canvas, Task Flow, and vtk.js verification outputs.",
+  },
+] as const;
+
+export const ENGINEERING_DECISIONS = [
+  "Prefer plugin seams over OpenClaw core patches.",
+  "Use sub-agent or sandbox-native execution for strong validation instead of ACP as the main path.",
+  "Reuse existing OpenClaw control surfaces before building new frontend infrastructure.",
+] as const;
+
