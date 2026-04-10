@@ -5,9 +5,14 @@ export function buildResearchPluginSummary() {
   return {
     pluginId: "research-plugin",
     strategy: "plugin-first",
-    currentStage: "phase-1-minimal-loop",
+    currentStage: "phase-2-knowledge-layer",
     decisions: [...ENGINEERING_DECISIONS],
     registeredModules: [
+      "paper_search",
+      "knowledge_ingest",
+      "rag_query",
+      "context_pack_build",
+      "knowledge_store_status",
       "paper_ingest",
       "task_orchestrator",
       "code_generator",
@@ -23,7 +28,8 @@ export function buildResearchPluginSummary() {
     })),
     nextMilestones: [
       "Replace simulated sandbox with Docker and cloud adapters",
-      "Add real paper search and multi-document RAG retrieval",
+      "Replace local paper fixtures with Arxiv, Crossref, or Scholar adapters",
+      "Swap keyword retrieval for vector search plus rerank",
       "Persist task graph snapshots and trace history",
       "Emit structured progress updates for Dashboard and Task Flow",
     ],

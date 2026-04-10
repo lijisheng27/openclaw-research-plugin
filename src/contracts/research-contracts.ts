@@ -1,19 +1,29 @@
 export type ResearchModuleId =
   | "paper_search"
   | "paper_ingest"
+  | "knowledge_ingest"
+  | "rag_query"
+  | "context_pack_build"
   | "task_orchestrator"
   | "code_generator"
   | "sandbox_run"
   | "validator"
   | "trace_recorder"
   | "report_build"
-  | "vtkjs_validate";
+  | "vtkjs_validate"
+  | "knowledge_store_status";
 
 export interface PaperMeta {
   title: string;
   abstract: string;
   source: string;
   keywords: string[];
+}
+
+export interface PaperSearchResult {
+  query: string;
+  provider: "local-fixture";
+  papers: PaperMeta[];
 }
 
 export interface RAGChunk {
@@ -27,6 +37,50 @@ export interface RAGIndex {
   documentCount: number;
   chunkCount: number;
   chunks: RAGChunk[];
+}
+
+export interface RAGStoreDocument {
+  documentId: string;
+  paperMeta: PaperMeta;
+  chunks: RAGChunk[];
+  ingestedAt: string;
+}
+
+export interface RAGStoreSnapshot {
+  storeId: string;
+  documentCount: number;
+  chunkCount: number;
+  documents: RAGStoreDocument[];
+}
+
+export interface RAGQueryMatch {
+  chunk: RAGChunk;
+  documentId: string;
+  title: string;
+  score: number;
+}
+
+export interface RAGQueryResult {
+  query: string;
+  matches: RAGQueryMatch[];
+  store: {
+    storeId: string;
+    documentCount: number;
+    chunkCount: number;
+  };
+}
+
+export interface ContextPack {
+  contextPackId: string;
+  query: string;
+  summary: string;
+  citations: Array<{
+    title: string;
+    documentId: string;
+    chunkId: string;
+    score: number;
+  }>;
+  snippets: string[];
 }
 
 export interface TaskNode {
@@ -117,3 +171,9 @@ export interface Phase1LoopOutput {
   report: ResearchReport;
 }
 
+export interface Phase2KnowledgeOutput {
+  search: PaperSearchResult;
+  store: RAGStoreSnapshot;
+  queryResult: RAGQueryResult;
+  contextPack: ContextPack;
+}

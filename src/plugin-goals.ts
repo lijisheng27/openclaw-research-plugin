@@ -11,13 +11,13 @@ export const RESEARCH_PLUGIN_PHASES = [
   },
   {
     id: "phase-2",
-    title: "RAG and task graph",
-    focus: "Add retrieval memory, persistent task graph snapshots, and trace replay.",
+    title: "Knowledge layer and context engine",
+    focus: "Add local paper search, persisted RAG store, retrieval, and context-pack generation.",
   },
   {
     id: "phase-3",
     title: "Sandboxed validation",
-    focus: "Run validation in Docker or cloud sandboxes with sub-agent execution paths.",
+    focus: "Run validation in Docker or cloud sandboxes, then persist task graph snapshots and trace replay.",
   },
   {
     id: "phase-4",
@@ -31,4 +31,3 @@ export const ENGINEERING_DECISIONS = [
   "Use sub-agent or sandbox-native execution for strong validation instead of ACP as the main path.",
   "Reuse existing OpenClaw control surfaces before building new frontend infrastructure.",
 ] as const;
-

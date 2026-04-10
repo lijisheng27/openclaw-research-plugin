@@ -41,14 +41,23 @@ Deliverables:
 
 ### Phase 2
 
-Introduce retrieval and persistent execution state.
+Introduce the local knowledge layer and context engine.
 
 Deliverables:
 
-- RAG index abstraction
-- document ingestion pipeline
-- task graph snapshot store
-- trace persistence and replay
+- `paper_search` local search adapter
+- `knowledge_ingest` persisted JSON store
+- `rag_query` keyword retrieval over stored chunks
+- `context_pack_build` citation and snippet pack
+- `knowledge_store_status` inspection tool
+- `research_phase2_knowledge_loop` one-shot search, ingest, retrieve, and context path
+
+Current limits:
+
+- local fixture search instead of Arxiv, Crossref, or Scholar
+- keyword scoring instead of embeddings and rerank
+- JSON store instead of a vector database
+- no task graph or trace replay persistence yet
 
 ### Phase 3
 
@@ -60,6 +69,8 @@ Deliverables:
 - cloud sandbox adapter
 - execution artifact capture
 - policy for sub-agent versus host execution
+- task graph snapshot store
+- trace persistence and replay
 
 ### Phase 4
 

@@ -13,6 +13,11 @@
       "help": "Absolute path for vector indexes and document caches.",
       "placeholder": "C:/data/openclaw-rag"
     },
+    "ragStorePath": {
+      "label": "RAG Store Path",
+      "help": "JSON store used by Phase 2 local knowledge ingestion and retrieval tools.",
+      "placeholder": "C:/data/openclaw-rag/rag-store.json"
+    },
     "taskGraphStore": {
       "label": "Task Graph Store",
       "help": "Path for task-graph snapshots and execution traces.",
@@ -34,6 +39,9 @@
       "ragIndexRoot": {
         "type": "string"
       },
+      "ragStorePath": {
+        "type": "string"
+      },
       "taskGraphStore": {
         "type": "string"
       },
@@ -46,7 +54,11 @@
           "type": "string",
           "enum": [
             "orchestrator",
+            "paper-search",
             "rag",
+            "rag-query",
+            "knowledge-store",
+            "context-pack",
             "validator",
             "task-graph",
             "visualization",
@@ -57,4 +69,3 @@
     }
   }
 }
-
