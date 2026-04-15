@@ -23,6 +23,16 @@
       "help": "Path for task-graph snapshots and execution traces.",
       "placeholder": "C:/data/openclaw-task-graph"
     },
+    "runStorePath": {
+      "label": "Run Store Path",
+      "help": "Directory used by Phase 3 sandbox manifests, logs, artifacts, snapshots, and replay records.",
+      "placeholder": "C:/data/openclaw-runs"
+    },
+    "dockerImage": {
+      "label": "Docker Image",
+      "help": "Default container image for the Phase 3 Docker sandbox adapter.",
+      "placeholder": "node:20-alpine"
+    },
     "vtkSceneOutputDir": {
       "label": "VTK Scene Output Directory",
       "help": "Directory used to export intermediate scene artifacts for vtk.js verification.",
@@ -45,6 +55,12 @@
       "taskGraphStore": {
         "type": "string"
       },
+      "runStorePath": {
+        "type": "string"
+      },
+      "dockerImage": {
+        "type": "string"
+      },
       "vtkSceneOutputDir": {
         "type": "string"
       },
@@ -59,8 +75,18 @@
             "rag-query",
             "knowledge-store",
             "context-pack",
+            "sandbox-policy",
+            "docker-sandbox",
+            "cloud-sandbox",
+            "artifact-capture",
+            "trace-replay",
             "validator",
             "task-graph",
+            "structured-progress",
+            "task-graph-summary",
+            "canvas-bridge",
+            "task-flow-bridge",
+            "vtk-scene-export",
             "visualization",
             "vtk"
           ]

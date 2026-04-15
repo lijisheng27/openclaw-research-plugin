@@ -7,6 +7,18 @@ export type ResearchModuleId =
   | "task_orchestrator"
   | "code_generator"
   | "sandbox_run"
+  | "docker_sandbox_run"
+  | "cloud_sandbox_plan"
+  | "sandbox_policy_decide"
+  | "phase3_local_workflow_plan"
+  | "artifact_capture"
+  | "task_graph_snapshot"
+  | "trace_replay"
+  | "structured_progress_updates"
+  | "task_graph_summary"
+  | "canvas_bridge"
+  | "task_flow_bridge"
+  | "vtk_scene_export"
   | "validator"
   | "trace_recorder"
   | "report_build"
@@ -101,8 +113,8 @@ export interface TaskGraph {
 }
 
 export interface GeneratedCode {
-  language: "typescript";
-  framework: "vtk.js";
+  language: "typescript" | "python";
+  framework: "vtk.js" | "python-scientific";
   entrypoint: string;
   files: Array<{
     path: string;
@@ -111,14 +123,96 @@ export interface GeneratedCode {
   summary: string;
 }
 
+export type EnvironmentProfileId = "node-vtk" | "node-typescript" | "python-scientific";
+
 export interface SandboxRunResult {
   runId: string;
   status: "passed" | "failed";
-  runtime: "subagent-sandbox-simulated";
+  runtime:
+    | "subagent-sandbox-simulated"
+    | "docker-adapter"
+    | "docker-adapter-dry-run"
+    | "cloud-sandbox-planned";
   stdout: string[];
   stderr: string[];
   producedArtifacts: string[];
   exitCode: number;
+}
+
+export interface SandboxPolicyDecision {
+  policyId: string;
+  requestedRuntime: "docker" | "cloud" | "subagent" | "simulate";
+  selectedRuntime: "docker" | "cloud" | "subagent" | "simulate";
+  allowed: boolean;
+  requiresStrongSandbox: boolean;
+  blockedReasons: string[];
+  guidance: string[];
+}
+
+export interface ExecutionArtifact {
+  artifactId: string;
+  kind: "source" | "manifest" | "stdout" | "stderr" | "report";
+  path: string;
+  summary: string;
+  sha256: string;
+}
+
+export interface SandboxRunManifest {
+  manifestId: string;
+  runId: string;
+  runtime: SandboxRunResult["runtime"];
+  environmentProfile: EnvironmentProfileId;
+  image: string;
+  imageTag: string;
+  command: string[];
+  dockerfilePath: string;
+  buildContextDir: string;
+  dockerBuildCommand: string[];
+  dockerCommand: string[];
+  manifestPath: string;
+  runnerCommand: string[];
+  workingDirectory: string;
+  createdAt: string;
+  artifacts: ExecutionArtifact[];
+  policy: SandboxPolicyDecision;
+}
+
+export interface CloudSandboxPlan {
+  planId: string;
+  provider: "technology-cloud" | "generic-cloud";
+  runtime: "cloud-sandbox-planned";
+  requiredInputs: string[];
+  uploadArtifacts: string[];
+  expectedOutputs: string[];
+  handoffSteps: string[];
+}
+
+export interface LocalDockerWorkflowPlan {
+  workflowId: string;
+  inputPath: string;
+  environmentProfile: EnvironmentProfileId;
+  command: string[];
+  shellCommand: string;
+  expectedOutputs: string[];
+}
+
+export interface TaskGraphSnapshot {
+  snapshotId: string;
+  taskGraph: TaskGraph;
+  capturedAt: string;
+  path: string;
+}
+
+export interface TraceReplay {
+  replayId: string;
+  traceId: string;
+  stepCount: number;
+  timeline: Array<{
+    order: number;
+    phase: ThinkActionTraceStep["phase"];
+    action: string;
+    observation: string;
+  }>;
 }
 
 export interface EvalRecord {
@@ -176,4 +270,86 @@ export interface Phase2KnowledgeOutput {
   store: RAGStoreSnapshot;
   queryResult: RAGQueryResult;
   contextPack: ContextPack;
+}
+
+export interface Phase3ValidationOutput {
+  policy: SandboxPolicyDecision;
+  sandboxRun: SandboxRunResult;
+  manifest: SandboxRunManifest;
+  evaluation: EvalRecord;
+  taskGraphSnapshot: TaskGraphSnapshot;
+  traceReplay: TraceReplay;
+  localWorkflowPlan: LocalDockerWorkflowPlan;
+  cloudPlan?: CloudSandboxPlan;
+}
+
+export interface StructuredProgressUpdate {
+  progressId: string;
+  stage: "phase-1" | "phase-2" | "phase-3" | "phase-4";
+  currentStep: string;
+  percent: number;
+  status: "running" | "completed" | "needs_attention";
+  timestamp: string;
+  details: string[];
+}
+
+export interface TaskGraphSummary {
+  summaryId: string;
+  graphId: string;
+  goal: string;
+  totalNodes: number;
+  completedNodes: number;
+  readyNodes: number;
+  failedNodes: number;
+  completionPercent: number;
+  criticalPath: string[];
+  nextRecommendedNode?: string;
+}
+
+export interface CanvasBridgePayload {
+  canvasId: string;
+  title: string;
+  subtitle: string;
+  cards: Array<{
+    id: string;
+    kind: "summary" | "progress" | "artifact" | "decision";
+    title: string;
+    body: string;
+    emphasis?: "low" | "medium" | "high";
+  }>;
+}
+
+export interface TaskFlowBridgePayload {
+  flowId: string;
+  graphId: string;
+  nodes: Array<{
+    id: string;
+    label: string;
+    status: TaskNode["status"];
+    kind: TaskNode["kind"];
+    percent?: number;
+  }>;
+  edges: Array<{ from: string; to: string }>;
+}
+
+export interface VtkSceneExportContract {
+  exportId: string;
+  sceneName: string;
+  format: "vtkjs-scene-export";
+  entrypoint: string;
+  artifactPath: string;
+  metadata: {
+    framework: GeneratedCode["framework"];
+    runId: string;
+    evaluationStatus: EvalRecord["status"];
+  };
+  validationChecks: string[];
+}
+
+export interface Phase4VisualizationOutput {
+  progressUpdates: StructuredProgressUpdate[];
+  taskGraphSummary: TaskGraphSummary;
+  canvasBridge: CanvasBridgePayload;
+  taskFlowBridge: TaskFlowBridgePayload;
+  vtkSceneExport: VtkSceneExportContract;
 }

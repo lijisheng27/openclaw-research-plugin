@@ -5,7 +5,7 @@ export function buildResearchPluginSummary() {
   return {
     pluginId: "research-plugin",
     strategy: "plugin-first",
-    currentStage: "phase-2-knowledge-layer",
+    currentStage: "phase-4-visualization-bridge",
     decisions: [...ENGINEERING_DECISIONS],
     registeredModules: [
       "paper_search",
@@ -13,6 +13,18 @@ export function buildResearchPluginSummary() {
       "rag_query",
       "context_pack_build",
       "knowledge_store_status",
+      "sandbox_policy_decide",
+      "docker_sandbox_run",
+      "cloud_sandbox_plan",
+      "phase3_local_workflow_plan",
+      "artifact_capture",
+      "task_graph_snapshot",
+      "trace_replay",
+      "structured_progress_updates",
+      "task_graph_summary",
+      "canvas_bridge",
+      "task_flow_bridge",
+      "vtk_scene_export",
       "paper_ingest",
       "task_orchestrator",
       "code_generator",
@@ -27,11 +39,10 @@ export function buildResearchPluginSummary() {
       title: phase.title,
     })),
     nextMilestones: [
-      "Replace simulated sandbox with Docker and cloud adapters",
       "Replace local paper fixtures with Arxiv, Crossref, or Scholar adapters",
       "Swap keyword retrieval for vector search plus rerank",
-      "Persist task graph snapshots and trace history",
-      "Emit structured progress updates for Dashboard and Task Flow",
+      "Execute Docker adapter against full project dependencies instead of contract dry-runs",
+      "Wire Phase 4 payloads into real Dashboard, Canvas, and Task Flow surfaces",
     ],
   };
 }

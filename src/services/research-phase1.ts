@@ -202,6 +202,8 @@ export function runSandbox(input: SandboxRunInput): SandboxRunResult {
 }
 
 export function validateRun(input: ValidatorInput): EvalRecord {
+  const expectedExtension = input.generatedCode.language === "python" ? ".py" : ".ts";
+  const environmentLabel = input.generatedCode.framework === "python-scientific" ? "python-scientific" : "vtk.js";
   const checks = [
     {
       name: "sandbox-exit-code",
@@ -209,8 +211,8 @@ export function validateRun(input: ValidatorInput): EvalRecord {
       detail: `Expected exit code 0, got ${input.sandboxRun.exitCode}.`,
     },
     {
-      name: "vtk-entrypoint-present",
-      passed: input.generatedCode.entrypoint.endsWith(".ts"),
+      name: "entrypoint-present",
+      passed: input.generatedCode.entrypoint.endsWith(expectedExtension),
       detail: `Entrypoint resolved to ${input.generatedCode.entrypoint}.`,
     },
     {
@@ -233,7 +235,7 @@ export function validateRun(input: ValidatorInput): EvalRecord {
         ? []
         : [
             "Remove placeholder exceptions before sandbox execution.",
-            "Ensure vtk.js export artifacts are generated for validator consumption.",
+            `Ensure ${environmentLabel} export artifacts are generated for validator consumption.`,
           ],
   };
 }
@@ -336,4 +338,3 @@ export function runPhase1Loop(input: { goal: string; title: string; abstract: st
     report,
   };
 }
-

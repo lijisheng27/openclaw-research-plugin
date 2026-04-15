@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "check": "tsc -p tsconfig.json --noEmit"
+    "check": "tsc -p tsconfig.json --noEmit",
+    "docker:sandbox": "node scripts/run-docker-sandbox.mjs",
+    "phase3:local-workflow": "node scripts/run-phase3-local-workflow.mjs"
   },
   "peerDependencies": {
     "openclaw": ">=2026.4.9"
@@ -30,4 +32,3 @@
     }
   }
 }
-

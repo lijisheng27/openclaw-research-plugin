@@ -17,12 +17,12 @@ export const RESEARCH_PLUGIN_PHASES = [
   {
     id: "phase-3",
     title: "Sandboxed validation",
-    focus: "Run validation in Docker or cloud sandboxes, then persist task graph snapshots and trace replay.",
+    focus: "Add sandbox policy, Docker dry-run/execute adapter, cloud handoff plan, artifact capture, snapshots, and trace replay.",
   },
   {
     id: "phase-4",
     title: "Visualization bridge",
-    focus: "Reuse OpenClaw Dashboard, Canvas, Task Flow, and vtk.js verification outputs.",
+    focus: "Emit structured progress, task graph summaries, Canvas and Task Flow bridge payloads, and vtk.js scene export contracts.",
   },
 ] as const;
 

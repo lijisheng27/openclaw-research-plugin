@@ -65,12 +65,20 @@ Add strong validation and reproducible execution.
 
 Deliverables:
 
-- Docker validator adapter
-- cloud sandbox adapter
-- execution artifact capture
-- policy for sub-agent versus host execution
-- task graph snapshot store
-- trace persistence and replay
+- `sandbox_policy_decide` host-runtime risk policy
+- `docker_sandbox_run` Docker adapter with dry-run manifests and optional execution
+- `cloud_sandbox_plan` cloud handoff plan
+- `artifact_capture` SHA-256 artifact records
+- `task_graph_snapshot` persisted task graph snapshots
+- `trace_replay` ordered trace replay timeline
+- `research_phase3_validation_loop` one-shot policy, sandbox, artifact, snapshot, and replay path
+- repository-local `pnpm docker:sandbox -- <manifest>` runner for real Docker execution
+
+Current limits:
+
+- Docker execution is not spawned from plugin production code; the plugin emits a reproducible manifest for the local runner, sub-agent, or external sandbox execution
+- cloud sandbox support is a handoff plan, not a remote API integration
+- vtk.js validation still checks contract-level artifacts, not browser rendering pixels
 
 ### Phase 4
 
@@ -78,10 +86,18 @@ Expose progress and validation artifacts to the UI layer.
 
 Deliverables:
 
-- structured progress payloads
-- task graph summaries
-- Canvas and Task Flow integration points
-- vtk.js scene export contract
+- `structured_progress_updates` Dashboard-style progress payloads
+- `task_graph_summary` graph completion and next-action summary
+- `canvas_bridge` Canvas-friendly cards
+- `task_flow_bridge` Task Flow node and edge payload
+- `vtk_scene_export` vtk.js scene export contract
+- `research_phase4_visualization_loop` one-shot visualization bridge path
+
+Current limits:
+
+- payloads are UI-ready JSON contracts, not live Canvas or Task Flow renderers
+- vtk scene export references validation artifacts, not browser-rendered scene snapshots
+- no OpenClaw frontend patches are required yet
 
 ## Guardrails
 
