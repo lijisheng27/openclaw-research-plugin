@@ -11,6 +11,7 @@ export type ResearchModuleId =
   | "cloud_sandbox_plan"
   | "sandbox_policy_decide"
   | "phase3_local_workflow_plan"
+  | "phase3_agent_exec_recipe"
   | "artifact_capture"
   | "task_graph_snapshot"
   | "trace_replay"
@@ -194,6 +195,33 @@ export interface LocalDockerWorkflowPlan {
   command: string[];
   shellCommand: string;
   expectedOutputs: string[];
+}
+
+export interface AgentExecRecipe {
+  recipeId: string;
+  goal: string;
+  environmentProfile: EnvironmentProfileId;
+  preferredToolCall: {
+    toolName: "phase3_local_workflow_plan";
+    arguments: {
+      goal: string;
+      title: string;
+      abstract: string;
+      body?: string;
+      code?: string;
+      codeLanguage?: GeneratedCode["language"];
+      artifactRoot?: string;
+      environmentProfile: EnvironmentProfileId;
+      requestedRuntime: SandboxPolicyDecision["requestedRuntime"];
+    };
+  };
+  expectedExec: {
+    cwd: string;
+    command: string;
+  };
+  successChecks: string[];
+  troubleshooting: string[];
+  agentPrompt: string;
 }
 
 export interface TaskGraphSnapshot {

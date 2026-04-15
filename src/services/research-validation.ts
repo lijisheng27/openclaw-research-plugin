@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type {
+  AgentExecRecipe,
   CloudSandboxPlan,
   EnvironmentProfileId,
   ExecutionArtifact,
@@ -621,5 +622,64 @@ export function buildLocalDockerWorkflowPlan(params: {
       "stderr.log",
       "workspace/artifacts/vtk-scene-summary.json",
     ],
+  };
+}
+
+export function buildPhase3AgentExecRecipe(params: {
+  goal: string;
+  title: string;
+  abstract: string;
+  body?: string;
+  code?: string;
+  codeLanguage?: GeneratedCode["language"];
+  artifactRoot?: string;
+  environmentProfile?: EnvironmentProfileId;
+  requestedRuntime?: SandboxPolicyDecision["requestedRuntime"];
+}): AgentExecRecipe {
+  const workflowPlan = buildLocalDockerWorkflowPlan(params);
+  const environmentProfile = workflowPlan.environmentProfile;
+  const requestedRuntime = params.requestedRuntime ?? "docker";
+  const toolArguments = {
+    goal: params.goal,
+    title: params.title,
+    abstract: params.abstract,
+    body: params.body,
+    code: params.code,
+    codeLanguage: params.codeLanguage,
+    artifactRoot: params.artifactRoot,
+    environmentProfile,
+    requestedRuntime,
+  };
+
+  return {
+    recipeId: createStableId("agent-recipe", `${params.goal}-${params.title}-${environmentProfile}`),
+    goal: params.goal,
+    environmentProfile,
+    preferredToolCall: {
+      toolName: "phase3_local_workflow_plan",
+      arguments: toolArguments,
+    },
+    expectedExec: {
+      cwd: path.resolve(process.cwd()),
+      command: workflowPlan.shellCommand,
+    },
+    successChecks: [
+      "phase3_local_workflow_plan returns an inputPath and shellCommand.",
+      "exec runs pnpm phase3:local-workflow with exit code 0.",
+      "docker-result.json reports status passed and exitCode 0.",
+      "workspace/artifacts/vtk-scene-summary.json exists in the run directory.",
+    ],
+    troubleshooting: [
+      "If exec cannot find the command, change to the plugin repository before running the shellCommand.",
+      "If Docker build fails, inspect docker-build.stderr.log in the run directory.",
+      "If the tool is not visible in OpenClaw, restart the gateway and open a fresh session so the tool allowlist refreshes.",
+    ],
+    agentPrompt: [
+      "Use phase3_local_workflow_plan first.",
+      `Pass goal=${JSON.stringify(params.goal)}, title=${JSON.stringify(params.title)}, abstract=${JSON.stringify(params.abstract)}.`,
+      `Keep environmentProfile=${JSON.stringify(environmentProfile)} and requestedRuntime=${JSON.stringify(requestedRuntime)}.`,
+      "After the tool returns, call exec in the plugin repository and run the returned shellCommand exactly once.",
+      "When exec finishes, summarize manifest path, docker-result status, exit code, and artifact paths.",
+    ].join(" "),
   };
 }

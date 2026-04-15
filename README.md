@@ -33,6 +33,7 @@ Phase 3 adds reproducible validation and artifact records:
 - `docker_sandbox_run`: prepares a Docker project bundle, environment files, and sandbox manifest.
 - `cloud_sandbox_plan`: creates a cloud sandbox handoff plan without running code on the host.
 - `phase3_local_workflow_plan`: builds a one-command local workflow for agents to execute with `exec`.
+- `phase3_agent_exec_recipe`: returns the standard OpenClaw calling recipe for `phase3_local_workflow_plan -> exec`.
 - `artifact_capture`: records file path, kind, summary, and SHA-256 for execution artifacts.
 - `task_graph_snapshot`: persists task graph snapshots for replay and audit.
 - `trace_replay`: converts Think-Action Trace data into an ordered replay timeline.
@@ -173,6 +174,13 @@ This command performs the complete local workflow:
 3. build the Docker image
 4. run the Docker container
 5. emit a combined workflow result with `docker-result.json`
+
+If you want OpenClaw to follow the same sequence every time, call `phase3_agent_exec_recipe` first. It returns:
+
+- the exact `phase3_local_workflow_plan` arguments to send
+- the `exec` command to run in the plugin repository
+- success checks and troubleshooting notes
+- a compact `agentPrompt` you can paste into a fresh OpenClaw session
 
 For a Python-oriented validation path:
 

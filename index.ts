@@ -13,6 +13,7 @@ import { createPhase1LoopTool } from "./src/tools/phase1-loop-tool.js";
 import { createPhase2KnowledgeLoopTool } from "./src/tools/phase2-knowledge-loop-tool.js";
 import { createPhase3ValidationLoopTool } from "./src/tools/phase3-validation-loop-tool.js";
 import { createPhase3LocalWorkflowPlanTool } from "./src/tools/phase3-local-workflow-plan-tool.js";
+import { createPhase3AgentExecRecipeTool } from "./src/tools/phase3-agent-exec-recipe-tool.js";
 import { createPhase4VisualizationLoopTool } from "./src/tools/phase4-visualization-loop-tool.js";
 import { createRagQueryTool } from "./src/tools/rag-query-tool.js";
 import { createResearchStatusTool } from "./src/tools/research-status-tool.js";
@@ -48,6 +49,7 @@ export default definePluginEntry({
     api.registerTool(createTaskGraphSnapshotTool());
     api.registerTool(createTraceReplayTool());
     api.registerTool(createPhase3LocalWorkflowPlanTool());
+    api.registerTool(createPhase3AgentExecRecipeTool());
     api.registerTool(createPhase3ValidationLoopTool());
     api.registerTool(createStructuredProgressTool());
     api.registerTool(createTaskGraphSummaryTool());
