@@ -8,7 +8,10 @@
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
     "docker:sandbox": "node scripts/run-docker-sandbox.mjs",
-    "phase3:local-workflow": "node scripts/run-phase3-local-workflow.mjs"
+    "phase3:local-workflow": "node scripts/run-phase3-local-workflow.mjs",
+    "phase5:local-workflow": "node scripts/run-phase5-local-workflow.mjs",
+    "phase5:repair-workflow": "node scripts/run-phase5-repair-workflow.mjs",
+    "vtkjs:eval-runner": "node scripts/run-vtkjs-eval-runner.mjs"
   },
   "peerDependencies": {
     "openclaw": ">=2026.4.9"

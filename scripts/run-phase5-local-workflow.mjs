@@ -33,13 +33,14 @@ function parseArgs(argv) {
 
 function usage() {
   console.log(`Usage:
-  pnpm phase3:local-workflow -- --input <workflow-input.json>
-  pnpm phase3:local-workflow -- --goal "..." --title "..." --abstract "..."
+  pnpm phase5:local-workflow -- --input <workflow-input.json>
+  pnpm phase5:local-workflow -- --goal "..." --title "..." --abstract "..."
 
-This runner performs the complete Phase 3 local workflow:
-1. Generate the plugin validation payload and Docker manifest
-2. Execute the generated manifest through the local Docker runner
-3. Emit a combined workflow result`);
+This runner performs the complete Phase 5 local workflow:
+1. Select the best task template and validation route
+2. Materialize the chosen Docker manifest
+3. Execute the generated manifest through the local Docker runner
+4. Emit a combined workflow result`);
 }
 
 function loadInput(args) {
@@ -64,19 +65,31 @@ function loadInput(args) {
     abstract: args.abstract,
     body: args.body,
     code: args.code,
+    html: args.html,
+    script: args.script,
     codeLanguage: args.codeLanguage,
     artifactRoot: args.artifactRoot,
     environmentProfile: args.environmentProfile,
     requestedRuntime: args.requestedRuntime ?? "docker",
+    canvasSelector: args.canvasSelector,
+    timeoutMs: args.timeoutMs ? Number(args.timeoutMs) : undefined,
   };
 }
 
 const args = parseArgs(process.argv.slice(2).filter((arg) => arg !== "--"));
 const input = loadInput(args);
 
-const serviceModule = await import("../dist/src/services/research-validation.js");
-const phase3 = serviceModule.runPhase3ValidationLoop(input);
-const manifestPath = phase3.manifest.manifestPath;
+const serviceModule = await import("../dist/src/services/vtkjs-phase5.js");
+const phase5 = serviceModule.runPhase5ExecutionLoop(input);
+const manifestPath =
+  phase5.routeKind === "vtkjs_render_verify"
+    ? phase5.renderVerify?.manifest.manifestPath
+    : phase5.phase3Validation?.manifest.manifestPath;
+
+if (!manifestPath) {
+  fail("Phase 5 execution loop did not produce a manifest path.");
+}
+
 const dockerRunner = spawnSync("node", ["scripts/run-docker-sandbox.mjs", manifestPath], {
   cwd: process.cwd(),
   encoding: "utf-8",
@@ -89,8 +102,13 @@ if (fs.existsSync(dockerResultPath)) {
 }
 
 const output = {
-  workflow: phase3.localWorkflowPlan,
-  validation: phase3,
+  workflow: phase5.localWorkflowPlan,
+  selection: phase5.selection,
+  routeKind: phase5.routeKind,
+  route:
+    phase5.routeKind === "vtkjs_render_verify"
+      ? phase5.renderVerify
+      : phase5.phase3Validation,
   dockerRunner: {
     exitCode: dockerRunner.status ?? 1,
     stdout: dockerRunner.stdout?.split(/\r?\n/).filter(Boolean) ?? [],

@@ -8,6 +8,17 @@ export function createStableId(prefix: string, seed: string) {
   return `${prefix}-${normalized || "item"}`;
 }
 
+export function sanitizeDockerNameSegment(input: string, maxLength = 80) {
+  const normalized = input
+    .toLowerCase()
+    .replace(/[^a-z0-9._-]+/g, "-")
+    .replace(/^[._-]+|[._-]+$/g, "")
+    .slice(0, maxLength)
+    .replace(/[._-]+$/g, "");
+
+  return normalized || "item";
+}
+
 export function pickKeywords(input: string, limit = 8) {
   const stopwords = new Set([
     "the",
@@ -65,4 +76,3 @@ export function chunkText(input: string, maxLength = 220) {
   if (current) chunks.push(current);
   return chunks;
 }
-

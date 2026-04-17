@@ -1,0 +1,227 @@
+{
+  "runId": "vtkjs-eval-slice-volume-streamline-mag-iso",
+  "requestedCases": [
+    "slice",
+    "volume",
+    "streamline",
+    "mag_iso"
+  ],
+  "totalCases": 4,
+  "acceptedCases": 4,
+  "averageScore": 100,
+  "cases": [
+    {
+      "caseId": "slice",
+      "title": "vtk.js Slice Benchmark",
+      "workflow": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "dockerExitCode": 0,
+      "dockerStatus": "passed",
+      "renderVerdict": "accepted",
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0,
+      "score": 100,
+      "status": "accepted",
+      "checks": [
+        {
+          "name": "docker-exit-code",
+          "passed": true,
+          "detail": "Expected Docker exit code 0, got 0."
+        },
+        {
+          "name": "docker-status",
+          "passed": true,
+          "detail": "Docker status: passed."
+        },
+        {
+          "name": "render-verdict",
+          "passed": true,
+          "detail": "Render verdict: accepted."
+        },
+        {
+          "name": "console-errors",
+          "passed": true,
+          "detail": "Console error count: 0."
+        },
+        {
+          "name": "page-errors",
+          "passed": true,
+          "detail": "Page error count: 0."
+        }
+      ]
+    },
+    {
+      "caseId": "volume",
+      "title": "vtk.js Volume Benchmark",
+      "workflow": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "dockerExitCode": 0,
+      "dockerStatus": "passed",
+      "renderVerdict": "accepted",
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0,
+      "score": 100,
+      "status": "accepted",
+      "checks": [
+        {
+          "name": "docker-exit-code",
+          "passed": true,
+          "detail": "Expected Docker exit code 0, got 0."
+        },
+        {
+          "name": "docker-status",
+          "passed": true,
+          "detail": "Docker status: passed."
+        },
+        {
+          "name": "render-verdict",
+          "passed": true,
+          "detail": "Render verdict: accepted."
+        },
+        {
+          "name": "console-errors",
+          "passed": true,
+          "detail": "Console error count: 0."
+        },
+        {
+          "name": "page-errors",
+          "passed": true,
+          "detail": "Page error count: 0."
+        }
+      ]
+    },
+    {
+      "caseId": "streamline",
+      "title": "vtk.js Streamline Benchmark",
+      "workflow": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "dockerExitCode": 0,
+      "dockerStatus": "passed",
+      "renderVerdict": "accepted",
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0,
+      "score": 100,
+      "status": "accepted",
+      "checks": [
+        {
+          "name": "docker-exit-code",
+          "passed": true,
+          "detail": "Expected Docker exit code 0, got 0."
+        },
+        {
+          "name": "docker-status",
+          "passed": true,
+          "detail": "Docker status: passed."
+        },
+        {
+          "name": "render-verdict",
+          "passed": true,
+          "detail": "Render verdict: accepted."
+        },
+        {
+          "name": "console-errors",
+          "passed": true,
+          "detail": "Console error count: 0."
+        },
+        {
+          "name": "page-errors",
+          "passed": true,
+          "detail": "Page error count: 0."
+        }
+      ]
+    },
+    {
+      "caseId": "mag_iso",
+      "title": "vtk.js Mag-Iso Benchmark",
+      "workflow": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\.research-runs\\vtkjs-eval-exec-rerun\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "dockerExitCode": 0,
+      "dockerStatus": "passed",
+      "renderVerdict": "accepted",
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0,
+      "score": 100,
+      "status": "accepted",
+      "checks": [
+        {
+          "name": "docker-exit-code",
+          "passed": true,
+          "detail": "Expected Docker exit code 0, got 0."
+        },
+        {
+          "name": "docker-status",
+          "passed": true,
+          "detail": "Docker status: passed."
+        },
+        {
+          "name": "render-verdict",
+          "passed": true,
+          "detail": "Render verdict: accepted."
+        },
+        {
+          "name": "console-errors",
+          "passed": true,
+          "detail": "Console error count: 0."
+        },
+        {
+          "name": "page-errors",
+          "passed": true,
+          "detail": "Page error count: 0."
+        }
+      ]
+    }
+  ],
+  "nextActions": [
+    "Inspect any benchmark case with failed execution-backed checks before trusting the generator.",
+    "Promote scaffold scenes to richer task logic only after the execution-backed baseline stays green.",
+    "Use the produced workflow inputs and artifacts as the seed for later experiment tables."
+  ]
+}

@@ -2,8 +2,23 @@ export type ResearchModuleId =
   | "paper_search"
   | "paper_ingest"
   | "knowledge_ingest"
+  | "vtkjs_knowledge_ingest"
+  | "vtkjs_retrieve_context"
+  | "vtkjs_generation_brief"
+  | "vtkjs_code_generate"
+  | "vtkjs_eval_runner"
   | "rag_query"
   | "context_pack_build"
+  | "research_vtkjs_loop"
+  | "vtkjs_template_select"
+  | "phase5_agent_exec_recipe"
+  | "vtkjs_render_verify"
+  | "vtkjs_repair_once"
+  | "phase5_local_workflow_plan"
+  | "phase5_repair_workflow_plan"
+  | "research_phase5_execution_loop"
+  | "research_phase5_repair_loop"
+  | "research_phase5_visualization_loop"
   | "task_orchestrator"
   | "code_generator"
   | "sandbox_run"
@@ -99,7 +114,7 @@ export interface ContextPack {
 export interface TaskNode {
   id: string;
   title: string;
-  kind: "ingest" | "retrieve" | "generate" | "execute" | "validate" | "report";
+  kind: "ingest" | "retrieve" | "generate" | "execute" | "validate" | "report" | "repair" | "visualize";
   status: "pending" | "ready" | "running" | "completed" | "failed";
   inputs: string[];
   outputs: string[];
@@ -224,6 +239,213 @@ export interface AgentExecRecipe {
   agentPrompt: string;
 }
 
+export type TaskTemplateId =
+  | "vtkjs_scene_validation"
+  | "python_scientific_script"
+  | "paper_reproduction_experiment";
+
+export interface TaskTemplateSelection {
+  selectionId: string;
+  phase: "phase-5";
+  templateId: TaskTemplateId;
+  templateLabel: string;
+  goal: string;
+  matchedSignals: string[];
+  rationale: string[];
+  environmentProfile: EnvironmentProfileId;
+  codeLanguage: GeneratedCode["language"];
+  requestedRuntime: SandboxPolicyDecision["requestedRuntime"];
+  validationStrategy:
+    | "vtkjs-render-contract"
+    | "scientific-script-contract"
+    | "paper-reproduction-workflow";
+  recommendedInputs: string[];
+  nextTools: Array<
+    | "research_vtkjs_loop"
+    | "vtkjs_knowledge_ingest"
+    | "vtkjs_retrieve_context"
+    | "vtkjs_generation_brief"
+    | "vtkjs_code_generate"
+    | "vtkjs_eval_runner"
+    | "phase5_agent_exec_recipe"
+    | "phase3_agent_exec_recipe"
+    | "phase3_local_workflow_plan"
+    | "docker_sandbox_run"
+    | "vtkjs_render_verify"
+    | "vtkjs_repair_once"
+    | "phase5_repair_workflow_plan"
+    | "research_phase5_repair_loop"
+  >;
+}
+
+export interface Phase5TemplateExecRecipe {
+  selection: TaskTemplateSelection;
+  agentExecRecipe: AgentExecRecipe;
+}
+
+export interface Phase5AgentExecRecipe {
+  recipeId: string;
+  goal: string;
+  templateId: TaskTemplateId;
+  routeKind: "vtkjs_render_verify" | "phase3_validation";
+  environmentProfile: EnvironmentProfileId;
+  preferredToolCall: {
+    toolName: "research_phase5_execution_loop";
+    arguments: {
+      goal: string;
+      title: string;
+      abstract: string;
+      body?: string;
+      code?: string;
+      html?: string;
+      script?: string;
+      codeLanguage?: GeneratedCode["language"];
+      artifactRoot?: string;
+      environmentProfile?: EnvironmentProfileId;
+      requestedRuntime: SandboxPolicyDecision["requestedRuntime"];
+      canvasSelector?: string;
+      timeoutMs?: number;
+    };
+  };
+  expectedExec: {
+    cwd: string;
+    command: string;
+  };
+  successChecks: string[];
+  troubleshooting: string[];
+  repairToolCall?: {
+    toolName: "phase5_repair_workflow_plan";
+    arguments: {
+      goal: string;
+      title: string;
+      abstract: string;
+      html?: string;
+      script?: string;
+      renderReportPath?: string;
+      browserConsolePath?: string;
+      pageErrorsPath?: string;
+      artifactRoot?: string;
+      canvasSelector?: string;
+      timeoutMs?: number;
+      maxRounds?: number;
+    };
+  };
+  agentPrompt: string;
+}
+
+export interface VtkjsRenderVerifyOutput {
+  verificationId: string;
+  pageUrl: string;
+  canvasSelector: string;
+  timeoutMs: number;
+  sandboxRun: SandboxRunResult;
+  manifest: SandboxRunManifest;
+  expectedArtifacts: string[];
+  runnerCommand: string[];
+}
+
+export interface Phase5LocalWorkflowPlan {
+  workflowId: string;
+  templateId: TaskTemplateId;
+  routeKind: "vtkjs_render_verify" | "phase3_validation";
+  inputPath: string;
+  shellCommand: string;
+  expectedOutputs: string[];
+}
+
+export interface Phase5ExecutionLoopOutput {
+  selection: TaskTemplateSelection;
+  routeKind: "vtkjs_render_verify" | "phase3_validation";
+  localWorkflowPlan: Phase5LocalWorkflowPlan;
+  renderVerify?: VtkjsRenderVerifyOutput;
+  phase3Validation?: Phase3ValidationOutput;
+}
+
+export type VtkjsRepairCategory =
+  | "missing_vtk_runtime"
+  | "missing_render_call"
+  | "missing_canvas"
+  | "page_runtime_error"
+  | "console_error"
+  | "unknown";
+
+export interface VtkjsRepairOnceOutput {
+  repairId: string;
+  category: VtkjsRepairCategory;
+  shouldRetry: boolean;
+  findings: string[];
+  rationale: string[];
+  repairedHtml?: string;
+  repairedScript?: string;
+  retryHints: string[];
+}
+
+export interface VtkjsEvidenceSummary {
+  summaryId: string;
+  label: string;
+  verdict: "accepted" | "needs_revision" | "planned" | "unknown";
+  canvasFound: boolean;
+  consoleErrorCount: number;
+  pageErrorCount: number;
+  hasRuntimeReferenceIssue: boolean;
+  evidenceSources: string[];
+}
+
+export interface Phase5ArtifactComparison {
+  comparisonId: string;
+  baseline: VtkjsEvidenceSummary;
+  candidate: VtkjsEvidenceSummary;
+  improved: boolean;
+  changes: string[];
+}
+
+export interface Phase5RepairRound {
+  round: number;
+  repair: VtkjsRepairOnceOutput;
+  retryLocalWorkflowPlan?: Phase5LocalWorkflowPlan;
+  retryRenderVerify?: VtkjsRenderVerifyOutput;
+  evidenceSummary?: VtkjsEvidenceSummary;
+}
+
+export interface Phase5RepairWorkflowPlan {
+  workflowId: string;
+  inputPath: string;
+  shellCommand: string;
+  maxRounds: number;
+  expectedOutputs: string[];
+}
+
+export interface Phase5ExecutedRepairRound {
+  round: number;
+  category: VtkjsRepairCategory;
+  manifestPath?: string;
+  dockerExitCode?: number;
+  dockerStatus?: "passed" | "failed";
+  evidenceSummary?: VtkjsEvidenceSummary;
+  artifactComparison?: Phase5ArtifactComparison;
+  stopReason?: string;
+}
+
+export interface Phase5RepairExecutionOutput {
+  workflow: Phase5RepairWorkflowPlan;
+  maxRounds: number;
+  executedRounds: Phase5ExecutedRepairRound[];
+  finalStatus: "accepted" | "needs_revision" | "stopped";
+  finalEvidenceSummary?: VtkjsEvidenceSummary;
+}
+
+export interface Phase5RepairLoopOutput {
+  selection: TaskTemplateSelection;
+  originalRouteKind: "vtkjs_render_verify" | "phase3_validation";
+  maxRounds: number;
+  evidenceSummary?: VtkjsEvidenceSummary;
+  artifactComparison?: Phase5ArtifactComparison;
+  repair: VtkjsRepairOnceOutput;
+  rounds: Phase5RepairRound[];
+  retryLocalWorkflowPlan?: Phase5LocalWorkflowPlan;
+  retryRenderVerify?: VtkjsRenderVerifyOutput;
+}
+
 export interface TaskGraphSnapshot {
   snapshotId: string;
   taskGraph: TaskGraph;
@@ -313,7 +535,7 @@ export interface Phase3ValidationOutput {
 
 export interface StructuredProgressUpdate {
   progressId: string;
-  stage: "phase-1" | "phase-2" | "phase-3" | "phase-4";
+  stage: "phase-1" | "phase-2" | "phase-3" | "phase-4" | "phase-5";
   currentStep: string;
   percent: number;
   status: "running" | "completed" | "needs_attention";
@@ -340,7 +562,7 @@ export interface CanvasBridgePayload {
   subtitle: string;
   cards: Array<{
     id: string;
-    kind: "summary" | "progress" | "artifact" | "decision";
+    kind: "summary" | "progress" | "artifact" | "decision" | "repair";
     title: string;
     body: string;
     emphasis?: "low" | "medium" | "high";
@@ -380,4 +602,138 @@ export interface Phase4VisualizationOutput {
   canvasBridge: CanvasBridgePayload;
   taskFlowBridge: TaskFlowBridgePayload;
   vtkSceneExport: VtkSceneExportContract;
+}
+
+export interface Phase5RepairSummary {
+  summaryId: string;
+  goal: string;
+  maxRounds: number;
+  plannedRounds: number;
+  primaryCategory: VtkjsRepairCategory;
+  hasArtifactComparison: boolean;
+  improvementDetected: boolean;
+  latestVerdict: VtkjsEvidenceSummary["verdict"] | "unknown";
+}
+
+export interface Phase5VisualizationOutput {
+  progressUpdates: StructuredProgressUpdate[];
+  repairSummary: Phase5RepairSummary;
+  canvasBridge: CanvasBridgePayload;
+  taskFlowBridge: TaskFlowBridgePayload;
+  artifactComparison?: Phase5ArtifactComparison;
+}
+
+export interface VtkjsKnowledgeIngestOutput {
+  query: string;
+  domain: "vtkjs";
+  storePath: string;
+  search: PaperSearchResult;
+  store: RAGStoreSnapshot;
+}
+
+export interface VtkjsRetrieveContextOutput {
+  query: string;
+  domain: "vtkjs";
+  storePath: string;
+  search: PaperSearchResult;
+  store: RAGStoreSnapshot;
+  queryResult: RAGQueryResult;
+  contextPack: ContextPack;
+  recommendedPatterns: string[];
+  failureFixPairs: string[];
+}
+
+export interface VtkjsGenerationBrief {
+  briefId: string;
+  query: string;
+  templateId: TaskTemplateId;
+  sceneKind: "generic" | "volume" | "slice" | "streamline" | "mag_iso" | "benchmark";
+  contextSummary: string;
+  recommendedPatterns: string[];
+  failureFixPairs: string[];
+  generationPrompt: string;
+  starterScript: string;
+  acceptanceChecks: string[];
+}
+
+export interface VtkjsCodeGenerationOutput {
+  generationId: string;
+  brief: VtkjsGenerationBrief;
+  generatedCode: GeneratedCode;
+  html: string;
+  script: string;
+  sceneKind: VtkjsGenerationBrief["sceneKind"];
+  starterNotes: string[];
+}
+
+export interface VtkjsEvalCaseResult {
+  caseId: "slice" | "volume" | "streamline" | "mag_iso";
+  title: string;
+  sceneKind: VtkjsGenerationBrief["sceneKind"];
+  generation: VtkjsCodeGenerationOutput;
+  routeKind: "vtkjs_render_verify" | "phase3_validation";
+  workflow: Phase5LocalWorkflowPlan;
+  score: number;
+  status: "accepted" | "needs_revision";
+  checks: Array<{
+    name: string;
+    passed: boolean;
+    detail: string;
+  }>;
+  summary: string;
+}
+
+export interface VtkjsEvalRunnerOutput {
+  runId: string;
+  requestedCases: Array<"slice" | "volume" | "streamline" | "mag_iso">;
+  totalCases: number;
+  acceptedCases: number;
+  averageScore: number;
+  cases: VtkjsEvalCaseResult[];
+  nextActions: string[];
+}
+
+export interface VtkjsEvalExecutedCaseResult {
+  caseId: "slice" | "volume" | "streamline" | "mag_iso";
+  title: string;
+  workflow: Phase5LocalWorkflowPlan;
+  dockerExitCode: number;
+  dockerStatus?: "passed" | "failed";
+  renderVerdict?: VtkjsEvidenceSummary["verdict"] | "unknown";
+  consoleErrorCount?: number;
+  pageErrorCount?: number;
+  score: number;
+  status: "accepted" | "needs_revision";
+  checks: Array<{
+    name: string;
+    passed: boolean;
+    detail: string;
+  }>;
+}
+
+export interface VtkjsEvalExecutionOutput {
+  runId: string;
+  requestedCases: Array<"slice" | "volume" | "streamline" | "mag_iso">;
+  totalCases: number;
+  acceptedCases: number;
+  averageScore: number;
+  cases: VtkjsEvalExecutedCaseResult[];
+  nextActions: string[];
+}
+
+export interface ResearchVtkjsLoopOutput {
+  loopId: string;
+  mode: "planning" | "repair_review";
+  selection: TaskTemplateSelection;
+  vtkjsContext?: VtkjsRetrieveContextOutput;
+  generationBrief?: VtkjsGenerationBrief;
+  generatedCandidate?: VtkjsCodeGenerationOutput;
+  phase5Execution: Phase5ExecutionLoopOutput;
+  phase5AgentRecipe: Phase5AgentExecRecipe;
+  repairWorkflowPlan?: Phase5RepairWorkflowPlan;
+  phase5Repair?: Phase5RepairLoopOutput;
+  phase5Visualization?: Phase5VisualizationOutput;
+  recommendedCommand: string;
+  nextActions: string[];
+  warnings: string[];
 }
