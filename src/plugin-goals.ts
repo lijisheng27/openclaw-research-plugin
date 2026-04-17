@@ -28,7 +28,7 @@ export const RESEARCH_PLUGIN_PHASES = [
     id: "phase-5",
     title: "Template-driven real task routing",
     focus:
-      "Add task templates, automatic environment selection, stable execution-chain routing, and a dedicated vtk.js single-entry loop for specialized workflows.",
+      "Add task templates, automatic environment selection, stable execution-chain routing, a dedicated vtk.js single-entry loop, a corpus-oriented dataset bootstrap, validation-backed update paths, and stable corpus promotion for specialized workflows.",
   },
 ] as const;
 

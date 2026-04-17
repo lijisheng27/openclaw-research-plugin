@@ -105,16 +105,16 @@ function ensureRuntimeScript(html?: string) {
   </head>
   <body>
     <div id="app"></div>
-    <script src="/node_modules/vtk.js/dist/vtk.js"></script>
+    <script src="/node_modules/vtk.js/vtk.js"></script>
     <script type="module" src="./generated/app.js"></script>
   </body>
 </html>
 `;
   }
-  if (source.includes("/node_modules/vtk.js/dist/vtk.js")) {
+  if (source.includes("/node_modules/vtk.js/vtk.js") || source.includes("/node_modules/vtk.js/dist/vtk.js")) {
     return source;
   }
-  return source.replace("</body>", '  <script src="/node_modules/vtk.js/dist/vtk.js"></script>\n</body>');
+  return source.replace("</body>", '  <script src="/node_modules/vtk.js/vtk.js"></script>\n</body>');
 }
 
 function normalizeText(input?: string) {
@@ -250,7 +250,9 @@ function classifyRepairCategory(params: VtkjsRepairParams): VtkjsRepairCategory 
   if (
     consoleText.includes("vtk is not defined") ||
     pageErrorText.includes("vtk is not defined") ||
-    (!htmlText.includes("/node_modules/vtk.js/dist/vtk.js") && htmlText.length > 0)
+    (!htmlText.includes("/node_modules/vtk.js/vtk.js") &&
+      !htmlText.includes("/node_modules/vtk.js/dist/vtk.js") &&
+      htmlText.length > 0)
   ) {
     return "missing_vtk_runtime";
   }

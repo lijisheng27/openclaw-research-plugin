@@ -37,6 +37,8 @@ import { createTraceRecorderTool } from "./src/tools/trace-recorder-tool.js";
 import { createValidatorTool } from "./src/tools/validator-tool.js";
 import { createVtkSceneExportTool } from "./src/tools/vtk-scene-export-tool.js";
 import { createVtkjsCodeGenerateTool } from "./src/tools/vtkjs-code-generate-tool.js";
+import { createVtkjsCorpusBuildTool } from "./src/tools/vtkjs-corpus-build-tool.js";
+import { createVtkjsCorpusUpdateTool } from "./src/tools/vtkjs-corpus-update-tool.js";
 import { createVtkjsEvalRunnerTool } from "./src/tools/vtkjs-eval-runner-tool.js";
 import { createVtkjsGenerationBriefTool } from "./src/tools/vtkjs-generation-brief-tool.js";
 import { createVtkjsKnowledgeIngestTool } from "./src/tools/vtkjs-knowledge-ingest-tool.js";
@@ -84,6 +86,8 @@ export default definePluginEntry({
     api.registerTool(createVtkjsRetrieveContextTool());
     api.registerTool(createVtkjsGenerationBriefTool());
     api.registerTool(createVtkjsCodeGenerateTool());
+    api.registerTool(createVtkjsCorpusBuildTool());
+    api.registerTool(createVtkjsCorpusUpdateTool());
     api.registerTool(createVtkjsEvalRunnerTool());
     api.registerTool(createVtkjsRepairOnceTool());
     api.registerTool(createVtkjsRenderVerifyTool());

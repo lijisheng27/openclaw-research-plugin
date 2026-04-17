@@ -5,7 +5,7 @@ export function buildResearchPluginSummary() {
   return {
     pluginId: "research-plugin",
     strategy: "plugin-first",
-    currentStage: "phase-5-execution-backed-vtkjs-eval",
+    currentStage: "phase-5-vtkjs-corpus-promotion-loop",
     decisions: [...ENGINEERING_DECISIONS],
     registeredModules: [
       "paper_search",
@@ -14,6 +14,8 @@ export function buildResearchPluginSummary() {
       "vtkjs_retrieve_context",
       "vtkjs_generation_brief",
       "vtkjs_code_generate",
+      "vtkjs_corpus_build",
+      "vtkjs_corpus_update",
       "vtkjs_eval_runner",
       "rag_query",
       "context_pack_build",
@@ -55,11 +57,13 @@ export function buildResearchPluginSummary() {
       title: phase.title,
     })),
     nextMilestones: [
-      "Turn research_vtkjs_loop into the single long-term entrypoint for vtk.js planning, generation, validation, repair, and eval after the new specialized retrieval layer",
+      "Keep research_vtkjs_loop as the long-term vtk.js entrypoint while letting it emit corpus-bootstrap and corpus-update output for dataset growth",
+      "Promote the new prompt-sample, prompt-sample-pro, and benchmark seed layout into a larger webSiv-style corpus with more real task coverage",
       "Replace local paper fixtures with Arxiv, Crossref, or Scholar adapters",
       "Swap the new vtk.js keyword retrieval layer for vector search plus rerank",
       "Connect research_phase5_execution_loop to richer vtk.js knowledge retrieval instead of local-only routing heuristics",
       "Expand execution-backed vtk.js benchmark coverage from scaffold scenes to richer task-specific scene logic",
+      "Expand automatic corpus promotion so successful repair retries update richer stable assets such as accepted screenshots, artifact summaries, and benchmark ground truth",
       "Wire Phase 5 repair review payloads into real Dashboard or Canvas surfaces",
     ],
   };

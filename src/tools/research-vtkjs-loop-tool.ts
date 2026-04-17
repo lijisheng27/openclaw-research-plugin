@@ -54,6 +54,9 @@ export function createResearchVtkjsLoopTool() {
       includeContext: Type.Optional(Type.Boolean()),
       includeGenerationBrief: Type.Optional(Type.Boolean()),
       includeGeneratedCandidate: Type.Optional(Type.Boolean()),
+      includeCorpusBuild: Type.Optional(Type.Boolean()),
+      corpusOutputRoot: Type.Optional(Type.String()),
+      corpusArtifactRoot: Type.Optional(Type.String()),
       includeRepair: Type.Optional(Type.Boolean()),
       includeVisualization: Type.Optional(Type.Boolean()),
     }),
@@ -92,6 +95,9 @@ export function createResearchVtkjsLoopTool() {
         includeContext?: boolean;
         includeGenerationBrief?: boolean;
         includeGeneratedCandidate?: boolean;
+        includeCorpusBuild?: boolean;
+        corpusOutputRoot?: string;
+        corpusArtifactRoot?: string;
         includeRepair?: boolean;
         includeVisualization?: boolean;
       },

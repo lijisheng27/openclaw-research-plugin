@@ -6,6 +6,8 @@ export type ResearchModuleId =
   | "vtkjs_retrieve_context"
   | "vtkjs_generation_brief"
   | "vtkjs_code_generate"
+  | "vtkjs_corpus_build"
+  | "vtkjs_corpus_update"
   | "vtkjs_eval_runner"
   | "rag_query"
   | "context_pack_build"
@@ -266,6 +268,8 @@ export interface TaskTemplateSelection {
     | "vtkjs_retrieve_context"
     | "vtkjs_generation_brief"
     | "vtkjs_code_generate"
+    | "vtkjs_corpus_build"
+    | "vtkjs_corpus_update"
     | "vtkjs_eval_runner"
     | "phase5_agent_exec_recipe"
     | "phase3_agent_exec_recipe"
@@ -666,6 +670,49 @@ export interface VtkjsCodeGenerationOutput {
   starterNotes: string[];
 }
 
+export interface VtkjsCorpusEntry {
+  entryId: string;
+  track: "prompt-sample" | "prompt-sample-pro" | "benchmark";
+  slug: string;
+  title: string;
+  sceneKind: VtkjsGenerationBrief["sceneKind"];
+  directory: string;
+  files: string[];
+}
+
+export interface VtkjsCorpusBuildOutput {
+  buildId: string;
+  corpusRoot: string;
+  manifestPath: string;
+  readmePath: string;
+  scriptGuidePath: string;
+  promptSampleCount: number;
+  promptSampleProCount: number;
+  benchmarkCount: number;
+  entries: VtkjsCorpusEntry[];
+  nextActions: string[];
+}
+
+export interface VtkjsCorpusUpdateOutput {
+  updateId: string;
+  corpusRoot: string;
+  entryId: string;
+  track: VtkjsCorpusEntry["track"];
+  slug: string;
+  entryDirectory: string;
+  manifestPath?: string;
+  evidenceSummary?: VtkjsEvidenceSummary;
+  artifactComparison?: Phase5ArtifactComparison;
+  repair?: Phase5RepairLoopOutput;
+  nextWorkflowInputPath?: string;
+  promotedToStable: boolean;
+  stableArtifactSummaryPath?: string;
+  benchmarkGroundTruthPath?: string;
+  promotedFiles: string[];
+  updatedFiles: string[];
+  nextActions: string[];
+}
+
 export interface VtkjsEvalCaseResult {
   caseId: "slice" | "volume" | "streamline" | "mag_iso";
   title: string;
@@ -728,6 +775,7 @@ export interface ResearchVtkjsLoopOutput {
   vtkjsContext?: VtkjsRetrieveContextOutput;
   generationBrief?: VtkjsGenerationBrief;
   generatedCandidate?: VtkjsCodeGenerationOutput;
+  corpusBuild?: VtkjsCorpusBuildOutput;
   phase5Execution: Phase5ExecutionLoopOutput;
   phase5AgentRecipe: Phase5AgentExecRecipe;
   repairWorkflowPlan?: Phase5RepairWorkflowPlan;

@@ -4,7 +4,7 @@ This is an external OpenClaw plugin for building a research assistant workflow. 
 
 ## Current Stage
 
-The plugin is now in the Phase 5 vtk.js single-entry loop stage.
+The plugin is now in the Phase 5 vtk.js corpus promotion-loop stage.
 
 Phase 1 delivered a runnable minimal loop:
 
@@ -55,6 +55,8 @@ Phase 5 now starts with template-driven routing:
 - `vtkjs_retrieve_context`: returns vtk.js-specific ranked snippets, citations, recommended patterns, and failure-fix hints.
 - `vtkjs_generation_brief`: turns vtk.js retrieval context into a generator-friendly prompt, starter script, and acceptance checklist.
 - `vtkjs_code_generate`: turns the generation brief into a browser-ready vtk.js starter candidate with HTML, script, and TypeScript source output.
+- `vtkjs_corpus_build`: writes a webSiv-style vtk.js corpus seed with prompt-sample, prompt-sample-pro, benchmark, and replayable workflow inputs.
+- `vtkjs_corpus_update`: writes validation evidence, repair proposals, next workflow inputs, and accepted-retry promotions back into a stored vtk.js corpus entry.
 - `vtkjs_eval_runner`: scores the current generator across slice, volume, streamline, and mag-iso benchmark cases.
 - `vtkjs_template_select`: selects a Phase 5 task template, chooses the environment profile, and returns a recommended execution recipe for the current goal.
 - `phase5_agent_exec_recipe`: returns the stable OpenClaw execution recipe for `research_phase5_execution_loop -> exec`, and includes the repair-workflow handoff for vtk.js failures.
@@ -86,6 +88,8 @@ Already available:
 - task graph summary and bridge payloads for Canvas and Task Flow
 - vtk.js scene export contract
 - vtk.js specialized RAG fixtures for bootstrap, browser evidence, repair hints, and benchmark-oriented scene patterns
+- vtk.js corpus bootstrap layout under `knowledge/vtkjs/` with prompt, codegen, benchmark, and replayable workflow-input artifacts
+- vtk.js corpus update sidecars for validation evidence, repair proposals, next-run workflow inputs, and stable-promotion records
 
 Not yet included:
 
@@ -253,6 +257,7 @@ Expected result:
 - `vtkjsContext.recommendedPatterns` highlights reusable scene or repair patterns
 - `generationBrief` contains generator-friendly prompt text, a starter script, and acceptance checks
 - `generatedCandidate` contains a browser-ready starter script and HTML when the request did not already provide code
+- if you set `includeCorpusBuild: true`, `corpusBuild` writes a corpus seed rooted at `knowledge/vtkjs/` or your chosen output directory
 - `phase5AgentRecipe.preferredToolCall.toolName` resolves to `research_phase5_execution_loop`
 - `recommendedCommand` resolves to `pnpm phase5:local-workflow -- --input ...`
 - `nextActions` explains whether to stop after the first run or hand off to repair
@@ -307,6 +312,53 @@ Expected result:
 - `script` is ready for `vtkjs_render_verify`
 - `html` points to `/node_modules/vtk.js/vtk.js` and a generated module entry
 
+To materialize the current Phase 5 outputs into a corpus-style directory layout, call `vtkjs_corpus_build`:
+
+```json
+{
+  "outputRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs"
+}
+```
+
+Expected result:
+
+- `corpusRoot` contains `prompt-sample`, `prompt-sample-pro`, `benchmark`, and `scripts`
+- each stored entry includes prompt text, retrieval context, generation output, and `phase5-workflow-input.json`
+- `corpus-manifest.json` summarizes the generated entry set
+- the corpus can be refreshed later without changing the stable OpenClaw and Docker workflow shape
+
+To write browser evidence and a repair proposal back into one stored corpus entry, call `vtkjs_corpus_update`:
+
+```json
+{
+  "corpusRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs",
+  "track": "prompt-sample",
+  "slug": "rendering-sphere-baseline",
+  "renderReportPath": "C:\\path\\to\\render-verification.json",
+  "browserConsolePath": "C:\\path\\to\\browser-console.json",
+  "pageErrorsPath": "C:\\path\\to\\page-errors.json"
+}
+```
+
+Expected result:
+
+- `validation/latest-evidence-summary.json` is written under the corpus entry
+- provided evidence files are copied into `validation/evidence/`
+- `validation/repair-loop.json` and `validation/next-phase5-workflow-input.json` are created when repair is needed
+- `task.json` or `benchmark-spec.json` records `latestValidation`
+- `corpus-manifest.json` is updated with `lastUpdatedAt`, `latestVerdict`, and `hasRepairProposal`
+
+If a later retry comes back accepted, call `vtkjs_corpus_update` again with the accepted evidence. By default it will:
+
+- promote `validation/next-phase5-workflow-input.json` into the stable `phase5-workflow-input.json`
+- update `generated-candidate.json` or `generation.json` with the promoted `html/script`
+- copy accepted evidence into `validation/accepted/`
+- write `validation/accepted/stable-artifacts-summary.json`
+- write `validation/stable-promotion.json`
+- mark the entry and manifest with `promotedToStable`
+
+For benchmark entries, the same promotion step also writes `ground-truth.json`, so the corpus can accumulate accepted benchmark baselines instead of keeping only transient retry files.
+
 To measure the current generator against the primary benchmark taxonomy, call `vtkjs_eval_runner`:
 
 ```json
@@ -333,6 +385,32 @@ Expected result:
 - each benchmark case executes through `phase5:local-workflow`
 - the final JSON includes Docker exit status, render verdict, console error count, and page error count
 - `vtkjs-eval-runner-result.json` is written to the plugin repository root
+
+To rebuild the seed corpus from the local repository without going through OpenClaw first:
+
+```powershell
+cd C:\Users\12159\learnClaw\openclaw-research-plugin
+pnpm vtkjs:corpus-build
+```
+
+Expected result:
+
+- `knowledge/vtkjs/README.md` describes the corpus layout
+- `knowledge/vtkjs/corpus-manifest.json` records prompt-sample, prompt-sample-pro, and benchmark entries
+- each stored entry can be replayed through `pnpm phase5:local-workflow -- --input ...`
+
+To update one stored corpus entry from local evidence files:
+
+```powershell
+cd C:\Users\12159\learnClaw\openclaw-research-plugin
+pnpm vtkjs:corpus-update -- --corpusRoot C:\path\to\knowledge\vtkjs --track prompt-sample --slug rendering-sphere-baseline --renderReportPath C:\path\to\render-verification.json --browserConsolePath C:\path\to\browser-console.json --pageErrorsPath C:\path\to\page-errors.json
+```
+
+Expected result:
+
+- the corpus entry gains a `validation/` directory
+- `next-phase5-workflow-input.json` appears when repair is recommended
+- the updated entry can be replayed immediately through `pnpm phase5:local-workflow -- --input ...`
 
 For the most stable OpenClaw orchestration path, call `phase5_agent_exec_recipe` first:
 

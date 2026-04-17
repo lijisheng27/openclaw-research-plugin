@@ -9,6 +9,7 @@ import type {
 } from "../contracts/research-contracts.js";
 import { createStableId } from "./research-utils.js";
 import { runPhase5VisualizationLoop } from "./phase5-visualization.js";
+import { buildVtkjsCorpus } from "./vtkjs-corpus.js";
 import { generateVtkjsCode } from "./vtkjs-codegen.js";
 import { buildVtkjsGenerationBrief } from "./vtkjs-generator.js";
 import { retrieveVtkjsContext } from "./vtkjs-knowledge.js";
@@ -48,6 +49,9 @@ interface ResearchVtkjsLoopParams {
   includeContext?: boolean;
   includeGenerationBrief?: boolean;
   includeGeneratedCandidate?: boolean;
+  includeCorpusBuild?: boolean;
+  corpusOutputRoot?: string;
+  corpusArtifactRoot?: string;
   includeRepair?: boolean;
   includeVisualization?: boolean;
 }
@@ -136,6 +140,7 @@ export function runResearchVtkjsLoop(params: ResearchVtkjsLoopParams): ResearchV
   const shouldIncludeContext = isVtkjsRoute && (params.includeContext ?? true);
   const shouldIncludeGenerationBrief = isVtkjsRoute && (params.includeGenerationBrief ?? true);
   const shouldIncludeGeneratedCandidate = isVtkjsRoute && (params.includeGeneratedCandidate ?? true);
+  const shouldIncludeCorpusBuild = isVtkjsRoute && (params.includeCorpusBuild ?? false);
   const shouldRunRepair = isVtkjsRoute && (params.includeRepair ?? hasRepairEvidence(params));
   const includeVisualization = params.includeVisualization ?? shouldRunRepair;
   const warnings: string[] = [];
@@ -194,6 +199,13 @@ export function runResearchVtkjsLoop(params: ResearchVtkjsLoopParams): ResearchV
     phase5Execution = runPhase5ExecutionLoop(generatedExecutionInput);
     phase5AgentRecipe = buildPhase5AgentExecRecipe(generatedExecutionInput);
   }
+
+  const corpusBuild = shouldIncludeCorpusBuild
+    ? buildVtkjsCorpus({
+        outputRoot: params.corpusOutputRoot,
+        artifactRoot: params.corpusArtifactRoot,
+      })
+    : undefined;
 
   const phase5Repair = shouldRunRepair
     ? runPhase5RepairLoop({
@@ -274,6 +286,7 @@ export function runResearchVtkjsLoop(params: ResearchVtkjsLoopParams): ResearchV
     vtkjsContext,
     generationBrief,
     generatedCandidate,
+    corpusBuild,
     phase5Execution,
     phase5AgentRecipe,
     repairWorkflowPlan,
