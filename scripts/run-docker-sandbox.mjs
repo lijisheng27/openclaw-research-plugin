@@ -33,6 +33,22 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf-8");
 }
 
+function collectFilesRecursively(rootDir) {
+  if (!fs.existsSync(rootDir)) {
+    return [];
+  }
+  const files = [];
+  for (const entry of fs.readdirSync(rootDir, { withFileTypes: true })) {
+    const entryPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...collectFilesRecursively(entryPath));
+      continue;
+    }
+    files.push(entryPath);
+  }
+  return files;
+}
+
 function readManifest(rawPath) {
   const manifestPath = path.resolve(rawPath);
   if (!fs.existsSync(manifestPath)) {
@@ -98,13 +114,11 @@ function ensureDockerDaemonAvailable(runDir) {
 
 function collectKnownArtifacts(runDir, workspaceDir) {
   const artifacts = [];
-  const sceneSummary = path.join(workspaceDir, "artifacts", "vtk-scene-summary.json");
   const stdoutLog = path.join(runDir, "stdout.log");
   const stderrLog = path.join(runDir, "stderr.log");
   for (const [kind, filePath, summary] of [
     ["stdout", stdoutLog, "Docker stdout log"],
     ["stderr", stderrLog, "Docker stderr log"],
-    ["report", sceneSummary, "Sandbox scene artifact summary"],
   ]) {
     if (!fs.existsSync(filePath)) {
       continue;
@@ -113,6 +127,14 @@ function collectKnownArtifacts(runDir, workspaceDir) {
       kind,
       path: path.relative(runDir, filePath).replaceAll("\\", "/"),
       summary,
+      sha256: sha256File(filePath),
+    });
+  }
+  for (const filePath of collectFilesRecursively(path.join(workspaceDir, "artifacts"))) {
+    artifacts.push({
+      kind: "report",
+      path: path.relative(runDir, filePath).replaceAll("\\", "/"),
+      summary: `Workspace artifact ${path.basename(filePath)}`,
       sha256: sha256File(filePath),
     });
   }
