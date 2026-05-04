@@ -81,10 +81,7 @@ const input = loadInput(args);
 
 const serviceModule = await import("../dist/src/services/vtkjs-phase5.js");
 const phase5 = serviceModule.runPhase5ExecutionLoop(input);
-const manifestPath =
-  phase5.routeKind === "vtkjs_render_verify"
-    ? phase5.renderVerify?.manifest.manifestPath
-    : phase5.phase3Validation?.manifest.manifestPath;
+const manifestPath = phase5.renderVerify?.manifest.manifestPath;
 
 if (!manifestPath) {
   fail("Phase 5 execution loop did not produce a manifest path.");
@@ -105,10 +102,7 @@ const output = {
   workflow: phase5.localWorkflowPlan,
   selection: phase5.selection,
   routeKind: phase5.routeKind,
-  route:
-    phase5.routeKind === "vtkjs_render_verify"
-      ? phase5.renderVerify
-      : phase5.phase3Validation,
+  route: phase5.renderVerify,
   dockerRunner: {
     exitCode: dockerRunner.status ?? 1,
     stdout: dockerRunner.stdout?.split(/\r?\n/).filter(Boolean) ?? [],

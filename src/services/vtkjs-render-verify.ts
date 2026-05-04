@@ -8,7 +8,6 @@ import type {
   SandboxRunResult,
   VtkjsRenderVerifyOutput,
 } from "../contracts/research-contracts.js";
-import { decideSandboxPolicy } from "./research-validation.js";
 import { createStableId, sanitizeDockerNameSegment } from "./research-utils.js";
 
 interface VtkjsRenderVerifyParams {
@@ -50,6 +49,32 @@ function buildContainerEntrypoint() {
     "cd /workspace",
     "node generated/render-verify.mjs",
   ].join(" && ");
+}
+
+function decideVtkjsSandboxPolicy(params: {
+  code: string;
+  requestedRuntime: SandboxPolicyDecision["requestedRuntime"];
+}): SandboxPolicyDecision {
+  const blockedReasons: string[] = [];
+  if (params.requestedRuntime !== "docker") {
+    blockedReasons.push("Phase 5 vtk.js render verification requires the Docker-backed browser workflow.");
+  }
+  if (/\b(rm\s+-rf|del\s+\/f|format\s+[a-z]:|shutdown\b)\b/i.test(params.code)) {
+    blockedReasons.push("Potentially destructive shell content was detected in the generated scene payload.");
+  }
+
+  return {
+    policyId: createStableId("policy", `${params.requestedRuntime}-${blockedReasons.join("|")}`),
+    requestedRuntime: params.requestedRuntime,
+    selectedRuntime: "docker",
+    allowed: blockedReasons.length === 0,
+    requiresStrongSandbox: true,
+    blockedReasons,
+    guidance: [
+      "Run vtk.js browser verification inside Docker + Playwright.",
+      "Treat browser artifacts as the acceptance source of truth.",
+    ],
+  };
 }
 
 function captureFileArtifact(params: {
@@ -271,7 +296,7 @@ export function buildVtkjsRenderVerifyPlan(params: VtkjsRenderVerifyParams): Vtk
   const pageUrl = "http://127.0.0.1:4173/index.html";
   const requestedRuntime = params.requestedRuntime ?? "docker";
   const sourceText = [params.goal, params.html ?? "", params.script ?? ""].join("\n");
-  const policy = decideSandboxPolicy({
+  const policy = decideVtkjsSandboxPolicy({
     code: sourceText,
     requestedRuntime,
   });

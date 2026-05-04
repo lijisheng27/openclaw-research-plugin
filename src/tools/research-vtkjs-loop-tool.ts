@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+﻿import { Type } from "@sinclair/typebox";
 import { runResearchVtkjsLoop } from "../services/research-vtkjs-loop.js";
 import { createJsonToolResult } from "./tool-result.js";
 
@@ -19,11 +19,7 @@ export function createResearchVtkjsLoopTool() {
       codeLanguage: Type.Optional(Type.Union([Type.Literal("typescript"), Type.Literal("python")])),
       artifactRoot: Type.Optional(Type.String()),
       environmentProfile: Type.Optional(
-        Type.Union([
-          Type.Literal("node-vtk"),
-          Type.Literal("node-typescript"),
-          Type.Literal("python-scientific"),
-        ]),
+        Type.Literal("node-vtk"),
       ),
       requestedRuntime: Type.Optional(
         Type.Union([
@@ -72,7 +68,7 @@ export function createResearchVtkjsLoopTool() {
         script?: string;
         codeLanguage?: "typescript" | "python";
         artifactRoot?: string;
-        environmentProfile?: "node-vtk" | "node-typescript" | "python-scientific";
+        environmentProfile?: "node-vtk";
         requestedRuntime?: "docker" | "cloud" | "subagent" | "simulate";
         canvasSelector?: string;
         timeoutMs?: number;
@@ -106,3 +102,4 @@ export function createResearchVtkjsLoopTool() {
     },
   };
 }
+
