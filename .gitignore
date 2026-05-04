@@ -5,3 +5,8 @@ coverage/
 *.tsbuildinfo
 .research-data/
 .research-runs/
+benchmark-eval/
+phase5-workflow-inputs/
+prompt-sample/
+prompt-sample-pro/
+render-verify-*/

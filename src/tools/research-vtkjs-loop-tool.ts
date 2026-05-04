@@ -7,7 +7,7 @@ export function createResearchVtkjsLoopTool() {
     name: "research_vtkjs_loop",
     label: "Research vtk.js Loop",
     description:
-      "Use the dedicated vtk.js entrypoint to plan the stable Phase 5 workflow and optionally summarize repair and visualization payloads.",
+      "Use the dedicated vtk.js entrypoint to plan the stable Phase 5 workflow, including structured sub-agent gates, repair, and visualization payloads.",
     parameters: Type.Object({
       goal: Type.String(),
       title: Type.Optional(Type.String()),

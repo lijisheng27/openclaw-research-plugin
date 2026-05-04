@@ -1,9 +1,0 @@
-{
-  "name": "vtkjs-render-verify-render-verify-generate-and-validate-a-vtk-js-scene-whose-promp",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "playwright": "1.54.0",
-    "vtk.js": "^35.7.2"
-  }
-}

@@ -772,6 +772,7 @@ export interface ResearchVtkjsLoopOutput {
   loopId: string;
   mode: "planning" | "repair_review";
   selection: TaskTemplateSelection;
+  governance: VtkjsLoopGovernance;
   vtkjsContext?: VtkjsRetrieveContextOutput;
   generationBrief?: VtkjsGenerationBrief;
   generatedCandidate?: VtkjsCodeGenerationOutput;
@@ -784,4 +785,65 @@ export interface ResearchVtkjsLoopOutput {
   recommendedCommand: string;
   nextActions: string[];
   warnings: string[];
+}
+
+export type VtkjsSubAgentRole =
+  | "module_retriever"
+  | "example_retriever"
+  | "error_retriever"
+  | "candidate_generator"
+  | "static_reviewer"
+  | "render_verifier"
+  | "repairer"
+  | "corpus_curator";
+
+export interface VtkjsSubAgentPlan {
+  agentId: string;
+  role: VtkjsSubAgentRole;
+  canRunInParallel: boolean;
+  purpose: string;
+  inputScope: string[];
+  outputContract: string[];
+  writeScope: string;
+  termination: {
+    maxSteps: number;
+    maxToolCalls: number;
+    stopWhen: string[];
+  };
+}
+
+export interface VtkjsGateDecision {
+  gateId: string;
+  stage:
+    | "intent_gate"
+    | "spawn_gate"
+    | "context_gate"
+    | "candidate_gate"
+    | "verification_gate"
+    | "repair_gate"
+    | "promotion_gate";
+  decision: "pass" | "warn" | "block";
+  valueScore: number;
+  evidence: string[];
+  feedback: string[];
+  nextAction: "continue" | "spawn_subagents" | "verify" | "repair" | "ask_human" | "promote" | "discard";
+}
+
+export interface VtkjsLoopGovernance {
+  governanceId: string;
+  parallelism: {
+    enabled: boolean;
+    maxConcurrentSubAgents: number;
+    rationale: string[];
+  };
+  subAgentPlan: VtkjsSubAgentPlan[];
+  gates: VtkjsGateDecision[];
+  fanInContract: {
+    requiredFields: string[];
+    reducerPolicy: string[];
+  };
+  summaryContract: {
+    valueJudgementFields: string[];
+    memoryDecisionFields: string[];
+  };
 }

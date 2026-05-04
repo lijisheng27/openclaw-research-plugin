@@ -12,6 +12,7 @@ import { runPhase5VisualizationLoop } from "./phase5-visualization.js";
 import { buildVtkjsCorpus } from "./vtkjs-corpus.js";
 import { generateVtkjsCode } from "./vtkjs-codegen.js";
 import { buildVtkjsGenerationBrief } from "./vtkjs-generator.js";
+import { buildVtkjsLoopGovernance } from "./vtkjs-governance.js";
 import { retrieveVtkjsContext } from "./vtkjs-knowledge.js";
 import { buildPhase5AgentExecRecipe, runPhase5ExecutionLoop } from "./vtkjs-phase5.js";
 import { buildPhase5RepairWorkflowPlan, runPhase5RepairLoop } from "./vtkjs-repair.js";
@@ -279,10 +280,23 @@ export function runResearchVtkjsLoop(params: ResearchVtkjsLoopParams): ResearchV
       })
     : undefined;
 
+  const governance = buildVtkjsLoopGovernance({
+    goal: params.goal,
+    selection: phase5Execution.selection,
+    vtkjsContext,
+    generationBrief,
+    generatedCandidate,
+    phase5Execution,
+    repairWorkflowPlan,
+    phase5Repair,
+    warnings,
+  });
+
   return {
     loopId: createStableId("research-vtkjs-loop", `${params.goal}-${phase5Execution.selection.templateId}`),
     mode: shouldRunRepair ? "repair_review" : "planning",
     selection: phase5Execution.selection,
+    governance,
     vtkjsContext,
     generationBrief,
     generatedCandidate,

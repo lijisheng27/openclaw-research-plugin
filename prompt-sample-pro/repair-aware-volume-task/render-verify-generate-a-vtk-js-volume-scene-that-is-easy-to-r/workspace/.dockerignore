@@ -1,5 +1,0 @@
-node_modules
-artifacts
-*.log
-docker-result.json
-sandbox-manifest.json
