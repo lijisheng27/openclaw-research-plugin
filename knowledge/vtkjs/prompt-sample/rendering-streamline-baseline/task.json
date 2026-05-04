@@ -1,0 +1,21 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-streamline-baseline",
+  "track": "prompt-sample",
+  "slug": "rendering-streamline-baseline",
+  "title": "vtk.js Streamline Baseline",
+  "goal": "Generate and validate a vtk.js streamline scene with browser evidence",
+  "abstract": "Use a stable streamline scaffold that preserves vector-field intent without sacrificing browser verifiability.",
+  "difficulty": "starter",
+  "tags": [
+    "streamline",
+    "vector-field",
+    "browser-validation"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample\\rendering-streamline-baseline\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-streamline-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}

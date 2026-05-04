@@ -1,0 +1,57 @@
+{
+  "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-volume-rendering-",
+  "brief": {
+    "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-volume-rendering-",
+    "query": "Generate and validate a vtk.js volume rendering scene with browser evidence vtk.js Volume Baseline Keep the volume task deterministic while making transfer-function intent explicit for later upgrades.",
+    "templateId": "vtkjs_scene_validation",
+    "sceneKind": "volume",
+    "contextSummary": "Prepared 6 snippets from 6 document(s).",
+    "recommendedPatterns": [
+      "Expect screenshot, console log, page error log, and a structured render verdict.",
+      "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+      "Inject the vtk.js browser bundle before any module script that references global vtk.",
+      "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+      "Retrieve mapper plus transfer-function setup before generating volume scenes.",
+      "Seed streamline scenes explicitly and confirm vector-field inputs before validation."
+    ],
+    "failureFixPairs": [
+      "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+      "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+      "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+      "If volume output is blank, verify transfer-function and camera-reset steps before deeper repair.",
+      "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+      "If validation fails early, retry with the minimal full-screen bootstrap scene first."
+    ],
+    "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: volume. Use these retrieval-backed patterns: Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Inject the vtk.js browser bundle before any module script that references global vtk. | Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Retrieve mapper plus transfer-function setup before generating volume scenes. | Seed streamline scenes explicitly and confirm vector-field inputs before validation.. Avoid regressions captured by these failure-fix hints: If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | Capture artifact expectations per benchmark case so later eval output stays comparable. | If volume output is blank, verify transfer-function and camera-reset steps before deeper repair. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair. | If validation fails early, retry with the minimal full-screen bootstrap scene first.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated volume workflow should make mapper plus transfer-function setup explicit..",
+    "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with real volume data, transfer functions, and a volume mapper.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+    "acceptanceChecks": [
+      "The scene should create a visible canvas during browser verification.",
+      "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+      "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+      "The browser console and page error logs should stay free of runtime errors.",
+      "The generated volume workflow should make mapper plus transfer-function setup explicit."
+    ]
+  },
+  "generatedCode": {
+    "language": "typescript",
+    "framework": "vtk.js",
+    "entrypoint": "src/generated/app.ts",
+    "summary": "vtk.js generated candidate for volume scene",
+    "files": [
+      {
+        "path": "src/generated/app.ts",
+        "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkConeSource from \"vtk.js/Sources/Filters/Sources/ConeSource\";\nimport vtkColorTransferFunction from \"vtk.js/Sources/Rendering/Core/ColorTransferFunction\";\nimport vtkPiecewiseFunction from \"vtk.js/Sources/Common/DataModel/PiecewiseFunction\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkConeSource.newInstance({ height: 1.0, radius: 0.4, resolution: 48 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n\n  const colorTransfer = vtkColorTransferFunction.newInstance();\n  colorTransfer.addRGBPoint(0, 0.1, 0.1, 0.2);\n  colorTransfer.addRGBPoint(255, 0.95, 0.65, 0.2);\n\n  const opacity = vtkPiecewiseFunction.newInstance();\n  opacity.addPoint(0, 0.0);\n  opacity.addPoint(255, 1.0);\n\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"volume-scaffold\",\n    transferPoints: 2,\n    opacityPoints: 2,\n    status: \"rendered\",\n  };\n}\n"
+      }
+    ]
+  },
+  "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+  "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.4,\n  resolution: 48,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+  "sceneKind": "volume",
+  "starterNotes": [
+    "This generated candidate keeps a deterministic browser-validation path by default.",
+    "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+    "The scene should create a visible canvas during browser verification.",
+    "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+    "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+  ]
+}

@@ -8,6 +8,10 @@ function fail(message, code = 1) {
   process.exit(code);
 }
 
+function readJsonFile(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf-8").replace(/^\uFEFF/, ""));
+}
+
 function parseArgs(argv) {
   const parsed = {};
   for (let index = 0; index < argv.length; index += 1) {
@@ -48,7 +52,7 @@ function loadInput(args) {
     if (!fs.existsSync(inputPath)) {
       fail(`Workflow input not found: ${inputPath}`);
     }
-    return JSON.parse(fs.readFileSync(inputPath, "utf-8"));
+    return readJsonFile(inputPath);
   }
   if (!args.goal || !args.title || !args.abstract) {
     usage();
@@ -81,7 +85,7 @@ const dockerRunner = spawnSync("node", ["scripts/run-docker-sandbox.mjs", manife
 let dockerResult = null;
 const dockerResultPath = path.join(path.dirname(manifestPath), "docker-result.json");
 if (fs.existsSync(dockerResultPath)) {
-  dockerResult = JSON.parse(fs.readFileSync(dockerResultPath, "utf-8"));
+  dockerResult = readJsonFile(dockerResultPath);
 }
 
 const output = {

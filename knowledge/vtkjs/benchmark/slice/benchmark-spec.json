@@ -1,0 +1,8 @@
+{
+  "caseId": "slice",
+  "title": "vtk.js Slice Benchmark",
+  "sceneKind": "slice",
+  "score": 100,
+  "status": "accepted",
+  "summary": "slice benchmark scored 100 with 7/7 checks passing."
+}

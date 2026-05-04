@@ -18,7 +18,7 @@ import type {
   TraceReplay,
 } from "../contracts/research-contracts.js";
 import { runPhase1Loop, validateRun } from "./research-phase1.js";
-import { createStableId } from "./research-utils.js";
+import { createStableId, sanitizeDockerNameSegment } from "./research-utils.js";
 
 function getRunRoot(customPath?: string) {
   return path.resolve(customPath?.trim() || path.join(process.cwd(), ".research-runs"));
@@ -365,7 +365,7 @@ export function runDockerSandbox(params: {
     sourceDir,
     entrypoint: params.generatedCode.entrypoint,
   });
-  const imageTag = `openclaw-research-plugin/${runId}:local`;
+  const imageTag = `openclaw-research-plugin/${sanitizeDockerNameSegment(runId)}:local`;
 
   const artifacts: ExecutionArtifact[] = params.generatedCode.files.map((file) =>
     captureFileArtifact({

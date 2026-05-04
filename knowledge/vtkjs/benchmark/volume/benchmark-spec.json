@@ -1,0 +1,8 @@
+{
+  "caseId": "volume",
+  "title": "vtk.js Volume Benchmark",
+  "sceneKind": "volume",
+  "score": 100,
+  "status": "accepted",
+  "summary": "volume benchmark scored 100 with 7/7 checks passing."
+}

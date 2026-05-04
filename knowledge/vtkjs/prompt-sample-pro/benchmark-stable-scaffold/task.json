@@ -1,0 +1,22 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-pro-benchmark-stable-scaffold",
+  "track": "prompt-sample-pro",
+  "slug": "benchmark-stable-scaffold",
+  "title": "vtk.js Stable Benchmark Scaffold Task",
+  "goal": "Generate a benchmark-stable vtk.js scene that can seed later task-specific benchmark cases",
+  "abstract": "Favor explicit acceptance checks and repeatable workflow inputs over visual complexity.",
+  "body": "This prompt should help bootstrap a corpus entry that later evolves into a harder benchmark without losing reproducibility.",
+  "difficulty": "advanced",
+  "tags": [
+    "benchmark",
+    "reproducibility",
+    "workflow-input"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample-pro\\benchmark-stable-scaffold\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\benchmark-stable-scaffold\\phase5-workflow-inputs\\phase5-workflow-generate-a-benchmark-stable-vtk-js-scene-that-ca.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}

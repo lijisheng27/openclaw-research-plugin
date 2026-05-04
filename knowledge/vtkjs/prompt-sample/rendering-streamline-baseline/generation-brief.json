@@ -1,0 +1,32 @@
+{
+  "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-streamline-scene-",
+  "query": "Generate and validate a vtk.js streamline scene with browser evidence vtk.js Streamline Baseline Use a stable streamline scaffold that preserves vector-field intent without sacrificing browser verifiability.",
+  "templateId": "vtkjs_scene_validation",
+  "sceneKind": "streamline",
+  "contextSummary": "Prepared 6 snippets from 6 document(s).",
+  "recommendedPatterns": [
+    "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+    "Expect screenshot, console log, page error log, and a structured render verdict.",
+    "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+    "Seed streamline scenes explicitly and confirm vector-field inputs before validation.",
+    "Build the scene in source -> mapper -> actor -> renderer order.",
+    "Always call renderer.resetCamera() before renderWindow.render()."
+  ],
+  "failureFixPairs": [
+    "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+    "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+    "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+    "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+    "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+    "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts."
+  ],
+  "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: streamline. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Seed streamline scenes explicitly and confirm vector-field inputs before validation. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated streamline workflow should make seed generation and vector-field wiring explicit..",
+  "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with seed generation, vector-field input wiring, and streamline actors.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+  "acceptanceChecks": [
+    "The scene should create a visible canvas during browser verification.",
+    "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+    "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+    "The browser console and page error logs should stay free of runtime errors.",
+    "The generated streamline workflow should make seed generation and vector-field wiring explicit."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "manifestId": "manifest-render-verify-generate-and-validate-a-vtk-js-mag",
+  "runId": "render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit",
+  "runtime": "docker-adapter-dry-run",
+  "environmentProfile": "node-vtk",
+  "image": "mcr.microsoft.com/playwright:v1.54.0-noble",
+  "imageTag": "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit:local",
+  "command": [
+    "bash",
+    "-lc",
+    "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+  ],
+  "dockerfilePath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\workspace\\Dockerfile",
+  "buildContextDir": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\workspace",
+  "dockerBuildCommand": [
+    "docker",
+    "build",
+    "-t",
+    "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit:local",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\workspace"
+  ],
+  "dockerCommand": [
+    "docker",
+    "run",
+    "--rm",
+    "-v",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\workspace:/workspace",
+    "-w",
+    "/workspace",
+    "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit:local",
+    "bash",
+    "-lc",
+    "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+  ],
+  "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\sandbox-manifest.json",
+  "runnerCommand": [
+    "pnpm",
+    "docker:sandbox",
+    "--",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\sandbox-manifest.json"
+  ],
+  "workingDirectory": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\render-verify-generate-and-validate-a-vtk-js-mag-iso-scene-wit\\workspace",
+  "createdAt": "2026-04-17T13:31:37.212Z",
+  "artifacts": [
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/index.html",
+      "summary": "Browser entry HTML for vtk.js render verification",
+      "sha256": "6df030d6d54f91aa8bae02231af76b4960c889349fe1c8ceff7681af65aa1066"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/generated/render-verify.mjs",
+      "summary": "Playwright-based render verification runner",
+      "sha256": "2b6faf2d67b46b90c1ea02c34b27d9d17ca3104fd9aa1ec8cf0c307700e0fd96"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/package.json",
+      "summary": "Render verification package manifest",
+      "sha256": "66dc942442e71a502247e5b7b15b39ee2967c767b565c4f78bb4ff01406fb1a3"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/.dockerignore",
+      "summary": "Render verification Docker ignore rules",
+      "sha256": "7baa630fc84172babd9dc5e81f27b9798d8f671bf0e7c0b7775df3492f7e4a48"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/Dockerfile",
+      "summary": "Render verification Dockerfile",
+      "sha256": "bc49b7cbd709f4f356b8c03e43a6128aceb7a752191a65ddcdc85244cb429612"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "stdout",
+      "path": "stdout.log",
+      "summary": "Render verification planner stdout log",
+      "sha256": "86cec20c36cecc8e499951b8ac890cd1bb146ad95fd10aad21c837fb31d8a6ac"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "stderr",
+      "path": "stderr.log",
+      "summary": "Render verification planner stderr log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "report",
+      "path": "workspace/artifacts/render-verification.json",
+      "summary": "Render verification report placeholder",
+      "sha256": "0a6179386d846c3497c6d2c66e501bd1f48c65efd7676e89b89c472e5311486b"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/generated/app.js",
+      "summary": "Browser module script for vtk.js render verification",
+      "sha256": "e7b455b09d53d867c3cd6761ac0064a17f8bd3283c2112167aea738aee50c2e1"
+    }
+  ],
+  "policy": {
+    "policyId": "policy-docker-generate-and-validate-a-vtk-js-mag-iso-sc",
+    "requestedRuntime": "docker",
+    "selectedRuntime": "docker",
+    "allowed": true,
+    "requiresStrongSandbox": false,
+    "blockedReasons": [],
+    "guidance": [
+      "Use Docker adapter when available; otherwise emit a dry-run manifest for reproducibility."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-scene-whose-promp",
+  "query": "Generate and validate a vtk.js scene whose prompt, code, and workflow input are all ready for corpus review vtk.js Browser Evidence Review Task The output should be suitable for prompt-sample-pro storage with stable prompt, retrieval context, starter code, and validation command.",
+  "templateId": "vtkjs_scene_validation",
+  "sceneKind": "generic",
+  "contextSummary": "Prepared 6 snippets from 6 document(s).",
+  "recommendedPatterns": [
+    "Expect screenshot, console log, page error log, and a structured render verdict.",
+    "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+    "Inject the vtk.js browser bundle before any module script that references global vtk.",
+    "Seed streamline scenes explicitly and confirm vector-field inputs before validation.",
+    "Build the scene in source -> mapper -> actor -> renderer order.",
+    "Always call renderer.resetCamera() before renderWindow.render()."
+  ],
+  "failureFixPairs": [
+    "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+    "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+    "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+    "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+    "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.",
+    "Capture artifact expectations per benchmark case so later eval output stays comparable."
+  ],
+  "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: generic. Use these retrieval-backed patterns: Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Inject the vtk.js browser bundle before any module script that references global vtk. | Seed streamline scenes explicitly and confirm vector-field inputs before validation. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts. | Capture artifact expectations per benchmark case so later eval output stays comparable.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors..",
+  "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\nconst source = vtk.Filters.Sources.vtkSphereSource.newInstance({\n  radius: 0.5,\n  thetaResolution: 32,\n  phiResolution: 32,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\n\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();\n",
+  "acceptanceChecks": [
+    "The scene should create a visible canvas during browser verification.",
+    "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+    "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+    "The browser console and page error logs should stay free of runtime errors."
+  ]
+}

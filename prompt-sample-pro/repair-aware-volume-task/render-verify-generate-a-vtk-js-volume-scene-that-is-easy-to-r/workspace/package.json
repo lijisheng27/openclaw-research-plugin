@@ -1,0 +1,9 @@
+{
+  "name": "vtkjs-render-verify-render-verify-generate-a-vtk-js-volume-scene-that-is-easy-to-r",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright": "1.54.0",
+    "vtk.js": "^35.7.2"
+  }
+}

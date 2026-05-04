@@ -1,0 +1,702 @@
+{
+  "buildId": "vtkjs-corpus-c-users-12159-learnclaw-openclaw-research-plugin",
+  "corpusRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs",
+  "generatedAt": "2026-04-17T13:31:37.680Z",
+  "tracks": {
+    "promptSample": 4,
+    "promptSamplePro": 4,
+    "benchmark": 4
+  },
+  "entries": [
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-sphere-baseline",
+      "track": "prompt-sample",
+      "slug": "rendering-sphere-baseline",
+      "title": "vtk.js Sphere Baseline",
+      "sceneKind": "generic",
+      "directory": "prompt-sample/rendering-sphere-baseline",
+      "files": [
+        "prompt-sample/rendering-sphere-baseline/prompt.md",
+        "prompt-sample/rendering-sphere-baseline/task.json",
+        "prompt-sample/rendering-sphere-baseline/context.json",
+        "prompt-sample/rendering-sphere-baseline/generation-brief.json",
+        "prompt-sample/rendering-sphere-baseline/generated-candidate.json",
+        "prompt-sample/rendering-sphere-baseline/phase5-workflow-input.json",
+        "prompt-sample/rendering-sphere-baseline/phase5-agent-recipe.json"
+      ],
+      "lastUpdatedAt": "2026-04-17T14:50:34.490Z",
+      "latestVerdict": "accepted",
+      "hasRepairProposal": true,
+      "promotedToStable": true,
+      "stableUpdatedAt": "2026-04-17T14:50:34.490Z",
+      "hasStableArtifactSummary": true
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-image-slice",
+      "track": "prompt-sample",
+      "slug": "rendering-image-slice",
+      "title": "vtk.js Image Slice Baseline",
+      "sceneKind": "slice",
+      "directory": "prompt-sample/rendering-image-slice",
+      "files": [
+        "prompt-sample/rendering-image-slice/prompt.md",
+        "prompt-sample/rendering-image-slice/task.json",
+        "prompt-sample/rendering-image-slice/context.json",
+        "prompt-sample/rendering-image-slice/generation-brief.json",
+        "prompt-sample/rendering-image-slice/generated-candidate.json",
+        "prompt-sample/rendering-image-slice/phase5-workflow-input.json",
+        "prompt-sample/rendering-image-slice/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-volume-baseline",
+      "track": "prompt-sample",
+      "slug": "rendering-volume-baseline",
+      "title": "vtk.js Volume Baseline",
+      "sceneKind": "volume",
+      "directory": "prompt-sample/rendering-volume-baseline",
+      "files": [
+        "prompt-sample/rendering-volume-baseline/prompt.md",
+        "prompt-sample/rendering-volume-baseline/task.json",
+        "prompt-sample/rendering-volume-baseline/context.json",
+        "prompt-sample/rendering-volume-baseline/generation-brief.json",
+        "prompt-sample/rendering-volume-baseline/generated-candidate.json",
+        "prompt-sample/rendering-volume-baseline/phase5-workflow-input.json",
+        "prompt-sample/rendering-volume-baseline/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-streamline-baseline",
+      "track": "prompt-sample",
+      "slug": "rendering-streamline-baseline",
+      "title": "vtk.js Streamline Baseline",
+      "sceneKind": "streamline",
+      "directory": "prompt-sample/rendering-streamline-baseline",
+      "files": [
+        "prompt-sample/rendering-streamline-baseline/prompt.md",
+        "prompt-sample/rendering-streamline-baseline/task.json",
+        "prompt-sample/rendering-streamline-baseline/context.json",
+        "prompt-sample/rendering-streamline-baseline/generation-brief.json",
+        "prompt-sample/rendering-streamline-baseline/generated-candidate.json",
+        "prompt-sample/rendering-streamline-baseline/phase5-workflow-input.json",
+        "prompt-sample/rendering-streamline-baseline/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-pro-rendering-mag-iso-benchmark",
+      "track": "prompt-sample-pro",
+      "slug": "rendering-mag-iso-benchmark",
+      "title": "vtk.js Mag-Iso Benchmark Prompt",
+      "sceneKind": "mag_iso",
+      "directory": "prompt-sample-pro/rendering-mag-iso-benchmark",
+      "files": [
+        "prompt-sample-pro/rendering-mag-iso-benchmark/prompt.md",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/task.json",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/context.json",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/generation-brief.json",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/generated-candidate.json",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/phase5-workflow-input.json",
+        "prompt-sample-pro/rendering-mag-iso-benchmark/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-pro-repair-aware-volume-task",
+      "track": "prompt-sample-pro",
+      "slug": "repair-aware-volume-task",
+      "title": "vtk.js Repair-Aware Volume Task",
+      "sceneKind": "volume",
+      "directory": "prompt-sample-pro/repair-aware-volume-task",
+      "files": [
+        "prompt-sample-pro/repair-aware-volume-task/prompt.md",
+        "prompt-sample-pro/repair-aware-volume-task/task.json",
+        "prompt-sample-pro/repair-aware-volume-task/context.json",
+        "prompt-sample-pro/repair-aware-volume-task/generation-brief.json",
+        "prompt-sample-pro/repair-aware-volume-task/generated-candidate.json",
+        "prompt-sample-pro/repair-aware-volume-task/phase5-workflow-input.json",
+        "prompt-sample-pro/repair-aware-volume-task/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-pro-browser-evidence-scene-review",
+      "track": "prompt-sample-pro",
+      "slug": "browser-evidence-scene-review",
+      "title": "vtk.js Browser Evidence Review Task",
+      "sceneKind": "generic",
+      "directory": "prompt-sample-pro/browser-evidence-scene-review",
+      "files": [
+        "prompt-sample-pro/browser-evidence-scene-review/prompt.md",
+        "prompt-sample-pro/browser-evidence-scene-review/task.json",
+        "prompt-sample-pro/browser-evidence-scene-review/context.json",
+        "prompt-sample-pro/browser-evidence-scene-review/generation-brief.json",
+        "prompt-sample-pro/browser-evidence-scene-review/generated-candidate.json",
+        "prompt-sample-pro/browser-evidence-scene-review/phase5-workflow-input.json",
+        "prompt-sample-pro/browser-evidence-scene-review/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-prompt-sample-pro-benchmark-stable-scaffold",
+      "track": "prompt-sample-pro",
+      "slug": "benchmark-stable-scaffold",
+      "title": "vtk.js Stable Benchmark Scaffold Task",
+      "sceneKind": "benchmark",
+      "directory": "prompt-sample-pro/benchmark-stable-scaffold",
+      "files": [
+        "prompt-sample-pro/benchmark-stable-scaffold/prompt.md",
+        "prompt-sample-pro/benchmark-stable-scaffold/task.json",
+        "prompt-sample-pro/benchmark-stable-scaffold/context.json",
+        "prompt-sample-pro/benchmark-stable-scaffold/generation-brief.json",
+        "prompt-sample-pro/benchmark-stable-scaffold/generated-candidate.json",
+        "prompt-sample-pro/benchmark-stable-scaffold/phase5-workflow-input.json",
+        "prompt-sample-pro/benchmark-stable-scaffold/phase5-agent-recipe.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-benchmark-slice",
+      "track": "benchmark",
+      "slug": "slice",
+      "title": "vtk.js Slice Benchmark",
+      "sceneKind": "slice",
+      "directory": "benchmark/slice",
+      "files": [
+        "benchmark/slice/benchmark-spec.json",
+        "benchmark/slice/generation.json",
+        "benchmark/slice/phase5-workflow-input.json",
+        "benchmark/slice/workflow-plan.json",
+        "benchmark/slice/checks.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-benchmark-volume",
+      "track": "benchmark",
+      "slug": "volume",
+      "title": "vtk.js Volume Benchmark",
+      "sceneKind": "volume",
+      "directory": "benchmark/volume",
+      "files": [
+        "benchmark/volume/benchmark-spec.json",
+        "benchmark/volume/generation.json",
+        "benchmark/volume/phase5-workflow-input.json",
+        "benchmark/volume/workflow-plan.json",
+        "benchmark/volume/checks.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-benchmark-streamline",
+      "track": "benchmark",
+      "slug": "streamline",
+      "title": "vtk.js Streamline Benchmark",
+      "sceneKind": "streamline",
+      "directory": "benchmark/streamline",
+      "files": [
+        "benchmark/streamline/benchmark-spec.json",
+        "benchmark/streamline/generation.json",
+        "benchmark/streamline/phase5-workflow-input.json",
+        "benchmark/streamline/workflow-plan.json",
+        "benchmark/streamline/checks.json"
+      ]
+    },
+    {
+      "entryId": "vtkjs-corpus-entry-benchmark-mag-iso",
+      "track": "benchmark",
+      "slug": "mag_iso",
+      "title": "vtk.js Mag-Iso Benchmark",
+      "sceneKind": "mag_iso",
+      "directory": "benchmark/mag_iso",
+      "files": [
+        "benchmark/mag_iso/benchmark-spec.json",
+        "benchmark/mag_iso/generation.json",
+        "benchmark/mag_iso/phase5-workflow-input.json",
+        "benchmark/mag_iso/workflow-plan.json",
+        "benchmark/mag_iso/checks.json"
+      ]
+    }
+  ],
+  "benchmarkEval": {
+    "runId": "vtkjs-eval-slice-volume-streamline-mag-iso",
+    "requestedCases": [
+      "slice",
+      "volume",
+      "streamline",
+      "mag_iso"
+    ],
+    "totalCases": 4,
+    "acceptedCases": 4,
+    "averageScore": 100,
+    "cases": [
+      {
+        "caseId": "slice",
+        "title": "vtk.js Slice Benchmark",
+        "sceneKind": "slice",
+        "generation": {
+          "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-slice-scene-with-",
+          "brief": {
+            "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-slice-scene-with-",
+            "query": "Generate and validate a vtk.js slice scene with browser evidence vtk.js Slice Benchmark The candidate should preserve a deterministic slice-oriented render path and browser validation contract.",
+            "templateId": "vtkjs_scene_validation",
+            "sceneKind": "slice",
+            "contextSummary": "Prepared 6 snippets from 6 document(s).",
+            "recommendedPatterns": [
+              "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+              "Expect screenshot, console log, page error log, and a structured render verdict.",
+              "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+              "Keep slice scenes explicit about image data, mapper setup, and viewport assumptions.",
+              "Build the scene in source -> mapper -> actor -> renderer order.",
+              "Always call renderer.resetCamera() before renderWindow.render()."
+            ],
+            "failureFixPairs": [
+              "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+              "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+              "If slice rendering regresses, compare mapper wiring and viewport setup against a minimal slice baseline.",
+              "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+              "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.",
+              "When the page says vtk is not defined, restore the runtime script include before changing scene logic."
+            ],
+            "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: slice. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Keep slice scenes explicit about image data, mapper setup, and viewport assumptions. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If slice rendering regresses, compare mapper wiring and viewport setup against a minimal slice baseline. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts. | When the page says vtk is not defined, restore the runtime script include before changing scene logic.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated slice workflow should make image-data and slice-mapper setup explicit..",
+            "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with image data, slice mapper wiring, and viewport constraints.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+            "acceptanceChecks": [
+              "The scene should create a visible canvas during browser verification.",
+              "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+              "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+              "The browser console and page error logs should stay free of runtime errors.",
+              "The generated slice workflow should make image-data and slice-mapper setup explicit."
+            ]
+          },
+          "generatedCode": {
+            "language": "typescript",
+            "framework": "vtk.js",
+            "entrypoint": "src/generated/app.ts",
+            "summary": "vtk.js generated candidate for slice scene",
+            "files": [
+              {
+                "path": "src/generated/app.ts",
+                "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkCubeSource from \"vtk.js/Sources/Filters/Sources/CubeSource\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkCubeSource.newInstance({ xLength: 1.0, yLength: 0.05, zLength: 1.0 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"slice-scaffold\",\n    status: \"rendered\",\n  };\n}\n"
+              }
+            ]
+          },
+          "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+          "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkCubeSource.newInstance({\n  xLength: 1.0,\n  yLength: 0.05,\n  zLength: 1.0,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+          "sceneKind": "slice",
+          "starterNotes": [
+            "This generated candidate keeps a deterministic browser-validation path by default.",
+            "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+            "The scene should create a visible canvas during browser verification.",
+            "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+            "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+          ]
+        },
+        "routeKind": "vtkjs_render_verify",
+        "workflow": {
+          "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-",
+          "templateId": "vtkjs_scene_validation",
+          "routeKind": "vtkjs_render_verify",
+          "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+          "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+          "expectedOutputs": [
+            "docker-result.json",
+            "workspace/artifacts/render-verification.json",
+            "workspace/artifacts/browser-console.json",
+            "workspace/artifacts/page-errors.json",
+            "workspace/artifacts/render-screenshot.png"
+          ]
+        },
+        "score": 100,
+        "status": "accepted",
+        "checks": [
+          {
+            "name": "scene-kind-match",
+            "passed": true,
+            "detail": "Expected slice, got slice."
+          },
+          {
+            "name": "browser-runtime-html",
+            "passed": true,
+            "detail": "HTML should preload the vtk.js browser runtime from node_modules."
+          },
+          {
+            "name": "render-call-present",
+            "passed": true,
+            "detail": "Browser script should reset the camera and call renderWindow.render()."
+          },
+          {
+            "name": "acceptance-contract",
+            "passed": true,
+            "detail": "Acceptance check count: 5."
+          },
+          {
+            "name": "source-generated",
+            "passed": true,
+            "detail": "Generated file count: 1."
+          },
+          {
+            "name": "phase5-route-kind",
+            "passed": true,
+            "detail": "Phase 5 route kind: vtkjs_render_verify."
+          },
+          {
+            "name": "workflow-command-present",
+            "passed": true,
+            "detail": "Workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json."
+          }
+        ],
+        "summary": "slice benchmark scored 100 with 7/7 checks passing."
+      },
+      {
+        "caseId": "volume",
+        "title": "vtk.js Volume Benchmark",
+        "sceneKind": "volume",
+        "generation": {
+          "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-volume-rendering-",
+          "brief": {
+            "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-volume-rendering-",
+            "query": "Generate and validate a vtk.js volume rendering scene with browser evidence vtk.js Volume Benchmark The candidate should preserve volume-specific setup hints while staying browser-verifiable.",
+            "templateId": "vtkjs_scene_validation",
+            "sceneKind": "volume",
+            "contextSummary": "Prepared 6 snippets from 6 document(s).",
+            "recommendedPatterns": [
+              "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+              "Expect screenshot, console log, page error log, and a structured render verdict.",
+              "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+              "Retrieve mapper plus transfer-function setup before generating volume scenes.",
+              "Build the scene in source -> mapper -> actor -> renderer order.",
+              "Always call renderer.resetCamera() before renderWindow.render()."
+            ],
+            "failureFixPairs": [
+              "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+              "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+              "If volume output is blank, verify transfer-function and camera-reset steps before deeper repair.",
+              "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+              "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+              "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts."
+            ],
+            "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: volume. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Retrieve mapper plus transfer-function setup before generating volume scenes. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If volume output is blank, verify transfer-function and camera-reset steps before deeper repair. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated volume workflow should make mapper plus transfer-function setup explicit..",
+            "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with real volume data, transfer functions, and a volume mapper.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+            "acceptanceChecks": [
+              "The scene should create a visible canvas during browser verification.",
+              "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+              "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+              "The browser console and page error logs should stay free of runtime errors.",
+              "The generated volume workflow should make mapper plus transfer-function setup explicit."
+            ]
+          },
+          "generatedCode": {
+            "language": "typescript",
+            "framework": "vtk.js",
+            "entrypoint": "src/generated/app.ts",
+            "summary": "vtk.js generated candidate for volume scene",
+            "files": [
+              {
+                "path": "src/generated/app.ts",
+                "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkConeSource from \"vtk.js/Sources/Filters/Sources/ConeSource\";\nimport vtkColorTransferFunction from \"vtk.js/Sources/Rendering/Core/ColorTransferFunction\";\nimport vtkPiecewiseFunction from \"vtk.js/Sources/Common/DataModel/PiecewiseFunction\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkConeSource.newInstance({ height: 1.0, radius: 0.4, resolution: 48 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n\n  const colorTransfer = vtkColorTransferFunction.newInstance();\n  colorTransfer.addRGBPoint(0, 0.1, 0.1, 0.2);\n  colorTransfer.addRGBPoint(255, 0.95, 0.65, 0.2);\n\n  const opacity = vtkPiecewiseFunction.newInstance();\n  opacity.addPoint(0, 0.0);\n  opacity.addPoint(255, 1.0);\n\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"volume-scaffold\",\n    transferPoints: 2,\n    opacityPoints: 2,\n    status: \"rendered\",\n  };\n}\n"
+              }
+            ]
+          },
+          "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+          "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.4,\n  resolution: 48,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+          "sceneKind": "volume",
+          "starterNotes": [
+            "This generated candidate keeps a deterministic browser-validation path by default.",
+            "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+            "The scene should create a visible canvas during browser verification.",
+            "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+            "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+          ]
+        },
+        "routeKind": "vtkjs_render_verify",
+        "workflow": {
+          "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-",
+          "templateId": "vtkjs_scene_validation",
+          "routeKind": "vtkjs_render_verify",
+          "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json",
+          "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json",
+          "expectedOutputs": [
+            "docker-result.json",
+            "workspace/artifacts/render-verification.json",
+            "workspace/artifacts/browser-console.json",
+            "workspace/artifacts/page-errors.json",
+            "workspace/artifacts/render-screenshot.png"
+          ]
+        },
+        "score": 100,
+        "status": "accepted",
+        "checks": [
+          {
+            "name": "scene-kind-match",
+            "passed": true,
+            "detail": "Expected volume, got volume."
+          },
+          {
+            "name": "browser-runtime-html",
+            "passed": true,
+            "detail": "HTML should preload the vtk.js browser runtime from node_modules."
+          },
+          {
+            "name": "render-call-present",
+            "passed": true,
+            "detail": "Browser script should reset the camera and call renderWindow.render()."
+          },
+          {
+            "name": "acceptance-contract",
+            "passed": true,
+            "detail": "Acceptance check count: 5."
+          },
+          {
+            "name": "source-generated",
+            "passed": true,
+            "detail": "Generated file count: 1."
+          },
+          {
+            "name": "phase5-route-kind",
+            "passed": true,
+            "detail": "Phase 5 route kind: vtkjs_render_verify."
+          },
+          {
+            "name": "workflow-command-present",
+            "passed": true,
+            "detail": "Workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json."
+          }
+        ],
+        "summary": "volume benchmark scored 100 with 7/7 checks passing."
+      },
+      {
+        "caseId": "streamline",
+        "title": "vtk.js Streamline Benchmark",
+        "sceneKind": "streamline",
+        "generation": {
+          "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-streamline-scene-",
+          "brief": {
+            "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-streamline-scene-",
+            "query": "Generate and validate a vtk.js streamline scene with browser evidence vtk.js Streamline Benchmark The candidate should represent streamline-like structure while preserving a deterministic render loop.",
+            "templateId": "vtkjs_scene_validation",
+            "sceneKind": "streamline",
+            "contextSummary": "Prepared 6 snippets from 6 document(s).",
+            "recommendedPatterns": [
+              "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+              "Seed streamline scenes explicitly and confirm vector-field inputs before validation.",
+              "Expect screenshot, console log, page error log, and a structured render verdict.",
+              "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+              "Build the scene in source -> mapper -> actor -> renderer order.",
+              "Always call renderer.resetCamera() before renderWindow.render()."
+            ],
+            "failureFixPairs": [
+              "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+              "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+              "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+              "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+              "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.",
+              "When the page says vtk is not defined, restore the runtime script include before changing scene logic."
+            ],
+            "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: streamline. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Seed streamline scenes explicitly and confirm vector-field inputs before validation. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts. | When the page says vtk is not defined, restore the runtime script include before changing scene logic.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated streamline workflow should make seed generation and vector-field wiring explicit..",
+            "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with seed generation, vector-field input wiring, and streamline actors.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+            "acceptanceChecks": [
+              "The scene should create a visible canvas during browser verification.",
+              "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+              "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+              "The browser console and page error logs should stay free of runtime errors.",
+              "The generated streamline workflow should make seed generation and vector-field wiring explicit."
+            ]
+          },
+          "generatedCode": {
+            "language": "typescript",
+            "framework": "vtk.js",
+            "entrypoint": "src/generated/app.ts",
+            "summary": "vtk.js generated candidate for streamline scene",
+            "files": [
+              {
+                "path": "src/generated/app.ts",
+                "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkArrowSource from \"vtk.js/Sources/Filters/Sources/ArrowSource\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkArrowSource.newInstance({ tipResolution: 24, shaftResolution: 24 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"streamline-scaffold\",\n    status: \"rendered\",\n  };\n}\n"
+              }
+            ]
+          },
+          "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+          "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkArrowSource.newInstance({\n  tipResolution: 24,\n  shaftResolution: 24,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+          "sceneKind": "streamline",
+          "starterNotes": [
+            "This generated candidate keeps a deterministic browser-validation path by default.",
+            "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+            "The scene should create a visible canvas during browser verification.",
+            "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+            "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+          ]
+        },
+        "routeKind": "vtkjs_render_verify",
+        "workflow": {
+          "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-",
+          "templateId": "vtkjs_scene_validation",
+          "routeKind": "vtkjs_render_verify",
+          "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json",
+          "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json",
+          "expectedOutputs": [
+            "docker-result.json",
+            "workspace/artifacts/render-verification.json",
+            "workspace/artifacts/browser-console.json",
+            "workspace/artifacts/page-errors.json",
+            "workspace/artifacts/render-screenshot.png"
+          ]
+        },
+        "score": 100,
+        "status": "accepted",
+        "checks": [
+          {
+            "name": "scene-kind-match",
+            "passed": true,
+            "detail": "Expected streamline, got streamline."
+          },
+          {
+            "name": "browser-runtime-html",
+            "passed": true,
+            "detail": "HTML should preload the vtk.js browser runtime from node_modules."
+          },
+          {
+            "name": "render-call-present",
+            "passed": true,
+            "detail": "Browser script should reset the camera and call renderWindow.render()."
+          },
+          {
+            "name": "acceptance-contract",
+            "passed": true,
+            "detail": "Acceptance check count: 5."
+          },
+          {
+            "name": "source-generated",
+            "passed": true,
+            "detail": "Generated file count: 1."
+          },
+          {
+            "name": "phase5-route-kind",
+            "passed": true,
+            "detail": "Phase 5 route kind: vtkjs_render_verify."
+          },
+          {
+            "name": "workflow-command-present",
+            "passed": true,
+            "detail": "Workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-streamline-scene-.json."
+          }
+        ],
+        "summary": "streamline benchmark scored 100 with 7/7 checks passing."
+      },
+      {
+        "caseId": "mag_iso",
+        "title": "vtk.js Mag-Iso Benchmark",
+        "sceneKind": "mag_iso",
+        "generation": {
+          "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-mag-iso-scene-wit",
+          "brief": {
+            "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-mag-iso-scene-wit",
+            "query": "Generate and validate a vtk.js mag-iso scene with browser evidence vtk.js Mag-Iso Benchmark The candidate should preserve iso-surface intent while staying compatible with browser verification.",
+            "templateId": "vtkjs_scene_validation",
+            "sceneKind": "mag_iso",
+            "contextSummary": "Prepared 6 snippets from 6 document(s).",
+            "recommendedPatterns": [
+              "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+              "Expect screenshot, console log, page error log, and a structured render verdict.",
+              "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+              "Build the scene in source -> mapper -> actor -> renderer order.",
+              "Always call renderer.resetCamera() before renderWindow.render().",
+              "Inject the vtk.js browser bundle before any module script that references global vtk."
+            ],
+            "failureFixPairs": [
+              "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+              "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+              "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+              "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+              "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.",
+              "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair."
+            ],
+            "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: mag_iso. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render(). | Inject the vtk.js browser bundle before any module script that references global vtk.. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated mag-iso workflow should make iso-value or contour extraction intent explicit..",
+            "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.09, 0.1, 0.15],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with iso-value selection, contour extraction, and a surface actor.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+            "acceptanceChecks": [
+              "The scene should create a visible canvas during browser verification.",
+              "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+              "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+              "The browser console and page error logs should stay free of runtime errors.",
+              "The generated mag-iso workflow should make iso-value or contour extraction intent explicit."
+            ]
+          },
+          "generatedCode": {
+            "language": "typescript",
+            "framework": "vtk.js",
+            "entrypoint": "src/generated/app.ts",
+            "summary": "vtk.js generated candidate for mag_iso scene",
+            "files": [
+              {
+                "path": "src/generated/app.ts",
+                "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkConeSource from \"vtk.js/Sources/Filters/Sources/ConeSource\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkConeSource.newInstance({ height: 1.0, radius: 0.3, resolution: 42 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"mag-iso-scaffold\",\n    isoValue: 0.5,\n    status: \"rendered\",\n  };\n}\n"
+              }
+            ]
+          },
+          "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+          "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.09, 0.1, 0.15],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.3,\n  resolution: 42,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+          "sceneKind": "mag_iso",
+          "starterNotes": [
+            "This generated candidate keeps a deterministic browser-validation path by default.",
+            "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+            "The scene should create a visible canvas during browser verification.",
+            "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+            "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+          ]
+        },
+        "routeKind": "vtkjs_render_verify",
+        "workflow": {
+          "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit",
+          "templateId": "vtkjs_scene_validation",
+          "routeKind": "vtkjs_render_verify",
+          "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json",
+          "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json",
+          "expectedOutputs": [
+            "docker-result.json",
+            "workspace/artifacts/render-verification.json",
+            "workspace/artifacts/browser-console.json",
+            "workspace/artifacts/page-errors.json",
+            "workspace/artifacts/render-screenshot.png"
+          ]
+        },
+        "score": 100,
+        "status": "accepted",
+        "checks": [
+          {
+            "name": "scene-kind-match",
+            "passed": true,
+            "detail": "Expected mag_iso, got mag_iso."
+          },
+          {
+            "name": "browser-runtime-html",
+            "passed": true,
+            "detail": "HTML should preload the vtk.js browser runtime from node_modules."
+          },
+          {
+            "name": "render-call-present",
+            "passed": true,
+            "detail": "Browser script should reset the camera and call renderWindow.render()."
+          },
+          {
+            "name": "acceptance-contract",
+            "passed": true,
+            "detail": "Acceptance check count: 5."
+          },
+          {
+            "name": "source-generated",
+            "passed": true,
+            "detail": "Generated file count: 1."
+          },
+          {
+            "name": "phase5-route-kind",
+            "passed": true,
+            "detail": "Phase 5 route kind: vtkjs_render_verify."
+          },
+          {
+            "name": "workflow-command-present",
+            "passed": true,
+            "detail": "Workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json."
+          }
+        ],
+        "summary": "mag_iso benchmark scored 100 with 7/7 checks passing."
+      }
+    ],
+    "nextActions": [
+      "Review any benchmark cases that fell below full score before treating the generator as stable.",
+      "Use the generated browser-ready scripts as the next input to Phase 5 local workflow execution.",
+      "Replace scaffold geometry with higher-fidelity task logic as the generator matures."
+    ]
+  },
+  "lastUpdatedAt": "2026-04-17T14:50:34.490Z"
+}

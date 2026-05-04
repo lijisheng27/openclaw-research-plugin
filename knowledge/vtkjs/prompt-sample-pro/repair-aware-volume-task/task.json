@@ -1,0 +1,22 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-pro-repair-aware-volume-task",
+  "track": "prompt-sample-pro",
+  "slug": "repair-aware-volume-task",
+  "title": "vtk.js Repair-Aware Volume Task",
+  "goal": "Generate a vtk.js volume scene that is easy to repair if browser validation reports missing canvas or runtime errors",
+  "abstract": "Emphasize failure-aware structure, explicit mapper setup, and deterministic render ordering.",
+  "body": "The candidate should stay close to the canonical Phase 5 repair path so Docker reruns can compare artifact deltas without changing the whole scene shape.",
+  "difficulty": "advanced",
+  "tags": [
+    "volume",
+    "repair",
+    "artifact-delta"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample-pro\\repair-aware-volume-task\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\repair-aware-volume-task\\phase5-workflow-inputs\\phase5-workflow-generate-a-vtk-js-volume-scene-that-is-easy-to-r.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}

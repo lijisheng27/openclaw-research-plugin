@@ -1,0 +1,9 @@
+{
+  "promotedAt": "2026-04-17T14:50:34.418Z",
+  "verdict": "accepted",
+  "canvasFound": true,
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0,
+  "artifactComparisonImproved": false,
+  "sourceWorkflowInputPath": "validation/next-phase5-workflow-input.json"
+}

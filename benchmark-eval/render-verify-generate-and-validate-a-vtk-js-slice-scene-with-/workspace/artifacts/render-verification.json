@@ -1,0 +1,8 @@
+{
+  "pageUrl": "http://127.0.0.1:4173/index.html",
+  "canvasSelector": "canvas",
+  "canvasFound": false,
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0,
+  "verdict": "planned"
+}
