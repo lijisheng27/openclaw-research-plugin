@@ -1,0 +1,8 @@
+{
+  "caseId": "mag_iso",
+  "title": "vtk.js Mag-Iso Benchmark",
+  "sceneKind": "mag_iso",
+  "score": 100,
+  "status": "accepted",
+  "summary": "mag_iso benchmark scored 100 with 7/7 checks passing."
+}

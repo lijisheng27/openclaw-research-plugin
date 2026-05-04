@@ -1,0 +1,57 @@
+{
+  "generationId": "vtkjs-codegen-generate-and-validate-a-vtk-js-slice-scene-with-",
+  "brief": {
+    "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-slice-scene-with-",
+    "query": "Generate and validate a vtk.js slice scene with browser evidence vtk.js Image Slice Baseline Use a slice-oriented scaffold that stays easy to inspect in the browser verification contract.",
+    "templateId": "vtkjs_scene_validation",
+    "sceneKind": "slice",
+    "contextSummary": "Prepared 6 snippets from 6 document(s).",
+    "recommendedPatterns": [
+      "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+      "Expect screenshot, console log, page error log, and a structured render verdict.",
+      "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+      "Keep slice scenes explicit about image data, mapper setup, and viewport assumptions.",
+      "Build the scene in source -> mapper -> actor -> renderer order.",
+      "Always call renderer.resetCamera() before renderWindow.render()."
+    ],
+    "failureFixPairs": [
+      "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+      "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+      "If slice rendering regresses, compare mapper wiring and viewport setup against a minimal slice baseline.",
+      "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+      "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+      "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts."
+    ],
+    "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: slice. Use these retrieval-backed patterns: Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Keep slice scenes explicit about image data, mapper setup, and viewport assumptions. | Build the scene in source -> mapper -> actor -> renderer order. | Always call renderer.resetCamera() before renderWindow.render().. Avoid regressions captured by these failure-fix hints: Capture artifact expectations per benchmark case so later eval output stays comparable. | If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | If slice rendering regresses, compare mapper wiring and viewport setup against a minimal slice baseline. | If validation fails early, retry with the minimal full-screen bootstrap scene first. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated slice workflow should make image-data and slice-mapper setup explicit..",
+    "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with image data, slice mapper wiring, and viewport constraints.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+    "acceptanceChecks": [
+      "The scene should create a visible canvas during browser verification.",
+      "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+      "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+      "The browser console and page error logs should stay free of runtime errors.",
+      "The generated slice workflow should make image-data and slice-mapper setup explicit."
+    ]
+  },
+  "generatedCode": {
+    "language": "typescript",
+    "framework": "vtk.js",
+    "entrypoint": "src/generated/app.ts",
+    "summary": "vtk.js generated candidate for slice scene",
+    "files": [
+      {
+        "path": "src/generated/app.ts",
+        "content": "import vtkFullScreenRenderWindow from \"vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow\";\nimport vtkMapper from \"vtk.js/Sources/Rendering/Core/Mapper\";\nimport vtkActor from \"vtk.js/Sources/Rendering/Core/Actor\";\nimport vtkCubeSource from \"vtk.js/Sources/Filters/Sources/CubeSource\";\n\nexport function runExperiment() {\n  const fullScreenRenderer = vtkFullScreenRenderWindow.newInstance();\n  const renderer = fullScreenRenderer.getRenderer();\n  const renderWindow = fullScreenRenderer.getRenderWindow();\n\n  const source = vtkCubeSource.newInstance({ xLength: 1.0, yLength: 0.05, zLength: 1.0 });\n  const mapper = vtkMapper.newInstance();\n  mapper.setInputConnection(source.getOutputPort());\n\n  const actor = vtkActor.newInstance();\n  actor.setMapper(mapper);\n  renderer.addActor(actor);\n  renderer.resetCamera();\n  renderWindow.render();\n\n  return {\n    scene: \"slice-scaffold\",\n    status: \"rendered\",\n  };\n}\n"
+      }
+    ]
+  },
+  "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+  "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance();\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkCubeSource.newInstance({\n  xLength: 1.0,\n  yLength: 0.05,\n  zLength: 1.0,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+  "sceneKind": "slice",
+  "starterNotes": [
+    "This generated candidate keeps a deterministic browser-validation path by default.",
+    "The browser script is ready for Phase 5 render verification without additional bundling steps.",
+    "The scene should create a visible canvas during browser verification.",
+    "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+    "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png."
+  ]
+}

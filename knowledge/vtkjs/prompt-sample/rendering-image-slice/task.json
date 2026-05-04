@@ -1,0 +1,21 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-image-slice",
+  "track": "prompt-sample",
+  "slug": "rendering-image-slice",
+  "title": "vtk.js Image Slice Baseline",
+  "goal": "Generate and validate a vtk.js slice scene with browser evidence",
+  "abstract": "Use a slice-oriented scaffold that stays easy to inspect in the browser verification contract.",
+  "difficulty": "starter",
+  "tags": [
+    "slice",
+    "image-data",
+    "browser-validation"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample\\rendering-image-slice\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-image-slice\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}

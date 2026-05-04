@@ -1,0 +1,71 @@
+{
+  "runId": "render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr",
+  "manifestId": "manifest-render-verify-validate-a-vtk-js-sphere-scene-end",
+  "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr\\sandbox-manifest.json",
+  "buildStartedAt": "2026-04-17T13:32:03.712Z",
+  "buildCompletedAt": "2026-04-17T13:33:46.993Z",
+  "dockerBuildCommand": [
+    "docker",
+    "build",
+    "-t",
+    "openclaw-research-plugin/render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr:local",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr\\workspace"
+  ],
+  "startedAt": "2026-04-17T13:33:46.993Z",
+  "completedAt": "2026-04-17T13:35:22.474Z",
+  "dockerCommand": [
+    "docker",
+    "run",
+    "--rm",
+    "-v",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr\\workspace:/workspace",
+    "-w",
+    "/workspace",
+    "openclaw-research-plugin/render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr:local",
+    "bash",
+    "-lc",
+    "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+  ],
+  "status": "passed",
+  "exitCode": 0,
+  "stdoutPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr\\stdout.log",
+  "stderrPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\render-verify-validate-a-vtk-js-sphere-scene-end-to-end-and-wr\\stderr.log",
+  "artifacts": [
+    {
+      "kind": "stdout",
+      "path": "stdout.log",
+      "summary": "Docker stdout log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "kind": "stderr",
+      "path": "stderr.log",
+      "summary": "Docker stderr log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "kind": "report",
+      "path": "workspace/artifacts/browser-console.json",
+      "summary": "Workspace artifact browser-console.json",
+      "sha256": "cc65cb9aa7e4e3c504212daf01f0637ef93ccf65fc03d5b380dd8c78428eaecd"
+    },
+    {
+      "kind": "report",
+      "path": "workspace/artifacts/page-errors.json",
+      "summary": "Workspace artifact page-errors.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "kind": "report",
+      "path": "workspace/artifacts/render-screenshot.png",
+      "summary": "Workspace artifact render-screenshot.png",
+      "sha256": "89864c986489b00e7031e6d3d18edf9dd3061ca9cd26cda9646a252b710ad204"
+    },
+    {
+      "kind": "report",
+      "path": "workspace/artifacts/render-verification.json",
+      "summary": "Workspace artifact render-verification.json",
+      "sha256": "623e7886f74511864bb8abd78f6a35d7ef41e9448a365db8ddf1f5342076aad3"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "caseId": "streamline",
+  "title": "vtk.js Streamline Benchmark",
+  "sceneKind": "streamline",
+  "score": 100,
+  "status": "accepted",
+  "summary": "streamline benchmark scored 100 with 7/7 checks passing."
+}

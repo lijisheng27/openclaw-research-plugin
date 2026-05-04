@@ -1,0 +1,47 @@
+{
+  "recipeId": "phase5-agent-recipe-generate-and-validate-a-vtk-js-volume-rendering-",
+  "goal": "Generate and validate a vtk.js volume rendering scene with browser evidence",
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "environmentProfile": "node-vtk",
+  "preferredToolCall": {
+    "toolName": "research_phase5_execution_loop",
+    "arguments": {
+      "goal": "Generate and validate a vtk.js volume rendering scene with browser evidence",
+      "title": "vtk.js Volume Baseline",
+      "abstract": "Keep the volume task deterministic while making transfer-function intent explicit for later upgrades.",
+      "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+      "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.4,\n  resolution: 48,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+      "artifactRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-volume-baseline",
+      "requestedRuntime": "docker"
+    }
+  },
+  "expectedExec": {
+    "cwd": "C:\\Users\\12159",
+    "command": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-volume-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-volume-rendering-.json"
+  },
+  "successChecks": [
+    "The tool result returns routeKind = vtkjs_render_verify.",
+    "Execute localWorkflowPlan.shellCommand exactly as returned.",
+    "docker-result.json reports status = passed and exitCode = 0.",
+    "workspace/artifacts/render-verification.json reports verdict = accepted."
+  ],
+  "troubleshooting": [
+    "If the agent skipped research_phase5_execution_loop, restart from that tool instead of improvising a different chain.",
+    "If the local workflow fails before Docker runs, rerun the returned shellCommand from the plugin repository and inspect docker-result.json.",
+    "If browser evidence is not accepted, call phase5_repair_workflow_plan with the emitted artifact paths."
+  ],
+  "repairToolCall": {
+    "toolName": "phase5_repair_workflow_plan",
+    "arguments": {
+      "goal": "Generate and validate a vtk.js volume rendering scene with browser evidence",
+      "title": "vtk.js Volume Baseline",
+      "abstract": "Keep the volume task deterministic while making transfer-function intent explicit for later upgrades.",
+      "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+      "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.4,\n  resolution: 48,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+      "artifactRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-volume-baseline",
+      "maxRounds": 3
+    }
+  },
+  "agentPrompt": "Call research_phase5_execution_loop first. Run the exact localWorkflowPlan.shellCommand in the plugin repository with exec. If docker-result.json is passed and render-verification.json is accepted, stop. If browser verification is not accepted, call phase5_repair_workflow_plan and execute the returned repair workflow command."
+}

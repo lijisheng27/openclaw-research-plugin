@@ -1,0 +1,37 @@
+[
+  {
+    "name": "scene-kind-match",
+    "passed": true,
+    "detail": "Expected slice, got slice."
+  },
+  {
+    "name": "browser-runtime-html",
+    "passed": true,
+    "detail": "HTML should preload the vtk.js browser runtime from node_modules."
+  },
+  {
+    "name": "render-call-present",
+    "passed": true,
+    "detail": "Browser script should reset the camera and call renderWindow.render()."
+  },
+  {
+    "name": "acceptance-contract",
+    "passed": true,
+    "detail": "Acceptance check count: 5."
+  },
+  {
+    "name": "source-generated",
+    "passed": true,
+    "detail": "Generated file count: 1."
+  },
+  {
+    "name": "phase5-route-kind",
+    "passed": true,
+    "detail": "Phase 5 route kind: vtkjs_render_verify."
+  },
+  {
+    "name": "workflow-command-present",
+    "passed": true,
+    "detail": "Workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json."
+  }
+]

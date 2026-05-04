@@ -1,0 +1,14 @@
+{
+  "summaryId": "evidence-latest-accepted-0-0",
+  "label": "latest",
+  "verdict": "accepted",
+  "canvasFound": true,
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0,
+  "hasRuntimeReferenceIssue": false,
+  "evidenceSources": [
+    "render-report",
+    "browser-console",
+    "page-errors"
+  ]
+}

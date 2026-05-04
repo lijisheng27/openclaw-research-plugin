@@ -1,0 +1,120 @@
+{
+  "manifestId": "manifest-render-verify-generate-and-validate-a-vtk-js-sli",
+  "runId": "render-verify-generate-and-validate-a-vtk-js-slice-scene-with-",
+  "runtime": "docker-adapter-dry-run",
+  "environmentProfile": "node-vtk",
+  "image": "mcr.microsoft.com/playwright:v1.54.0-noble",
+  "imageTag": "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-slice-scene-with:local",
+  "command": [
+    "bash",
+    "-lc",
+    "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+  ],
+  "dockerfilePath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\workspace\\Dockerfile",
+  "buildContextDir": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\workspace",
+  "dockerBuildCommand": [
+    "docker",
+    "build",
+    "-t",
+    "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-slice-scene-with:local",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\workspace"
+  ],
+  "dockerCommand": [
+    "docker",
+    "run",
+    "--rm",
+    "-v",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\workspace:/workspace",
+    "-w",
+    "/workspace",
+    "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-slice-scene-with:local",
+    "bash",
+    "-lc",
+    "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+  ],
+  "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\sandbox-manifest.json",
+  "runnerCommand": [
+    "pnpm",
+    "docker:sandbox",
+    "--",
+    "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\sandbox-manifest.json"
+  ],
+  "workingDirectory": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\render-verify-generate-and-validate-a-vtk-js-slice-scene-with-\\workspace",
+  "createdAt": "2026-04-17T13:31:37.556Z",
+  "artifacts": [
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/index.html",
+      "summary": "Browser entry HTML for vtk.js render verification",
+      "sha256": "6df030d6d54f91aa8bae02231af76b4960c889349fe1c8ceff7681af65aa1066"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/generated/render-verify.mjs",
+      "summary": "Playwright-based render verification runner",
+      "sha256": "2b6faf2d67b46b90c1ea02c34b27d9d17ca3104fd9aa1ec8cf0c307700e0fd96"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/package.json",
+      "summary": "Render verification package manifest",
+      "sha256": "4f69ae86e08e69f451413de3d2dd2df702a05144942782bf1b8ded963662dde4"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/.dockerignore",
+      "summary": "Render verification Docker ignore rules",
+      "sha256": "7baa630fc84172babd9dc5e81f27b9798d8f671bf0e7c0b7775df3492f7e4a48"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/Dockerfile",
+      "summary": "Render verification Dockerfile",
+      "sha256": "bc49b7cbd709f4f356b8c03e43a6128aceb7a752191a65ddcdc85244cb429612"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "stdout",
+      "path": "stdout.log",
+      "summary": "Render verification planner stdout log",
+      "sha256": "1f2b0330c52f7ffaa1c2e05fb819c06d685647f61283a64ddeb6cd3d50f5aea3"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "stderr",
+      "path": "stderr.log",
+      "summary": "Render verification planner stderr log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "report",
+      "path": "workspace/artifacts/render-verification.json",
+      "summary": "Render verification report placeholder",
+      "sha256": "0a6179386d846c3497c6d2c66e501bd1f48c65efd7676e89b89c472e5311486b"
+    },
+    {
+      "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+      "kind": "source",
+      "path": "workspace/generated/app.js",
+      "summary": "Browser module script for vtk.js render verification",
+      "sha256": "08dd087649b103b5b0451ef39b29cbbcbe339cc72384ab4f2993fafc0fe708a1"
+    }
+  ],
+  "policy": {
+    "policyId": "policy-docker-generate-and-validate-a-vtk-js-slice-scen",
+    "requestedRuntime": "docker",
+    "selectedRuntime": "docker",
+    "allowed": true,
+    "requiresStrongSandbox": false,
+    "blockedReasons": [],
+    "guidance": [
+      "Use Docker adapter when available; otherwise emit a dry-run manifest for reproducibility."
+    ]
+  }
+}

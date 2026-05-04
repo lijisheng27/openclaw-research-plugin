@@ -1,0 +1,455 @@
+{
+  "query": "Generate a vtk.js volume scene that is easy to repair if browser validation reports missing canvas or runtime errors vtk.js Repair-Aware Volume Task Emphasize failure-aware structure, explicit mapper setup, and deterministic render ordering.",
+  "domain": "vtkjs",
+  "storePath": "C:\\Users\\12159\\.research-data\\vtkjs-rag-store.json",
+  "search": {
+    "query": "Generate a vtk.js volume scene that is easy to repair if browser validation reports missing canvas or runtime errors vtk.js Repair-Aware Volume Task Emphasize failure-aware structure, explicit mapper setup, and deterministic render ordering.",
+    "provider": "local-fixture",
+    "papers": [
+      {
+        "title": "Volume Rendering Workflow Patterns in vtk.js",
+        "abstract": "Volume rendering tasks should retrieve volume mapper, transfer function, opacity function, and camera reset patterns before validation.",
+        "source": "local-fixture:vtkjs-volume-rendering",
+        "keywords": [
+          "vtk.js",
+          "volume",
+          "mapper",
+          "transfer function",
+          "opacity",
+          "camera"
+        ]
+      },
+      {
+        "title": "Browser Evidence for vtk.js Validation with Playwright",
+        "abstract": "Reliable vtk.js validation should capture screenshots, browser console logs, page errors, and a render verification verdict from Playwright.",
+        "source": "local-fixture:vtkjs-browser-evidence",
+        "keywords": [
+          "vtk.js",
+          "playwright",
+          "browser",
+          "verification",
+          "artifacts",
+          "screenshot",
+          "console"
+        ]
+      },
+      {
+        "title": "Streamline and Vector Field Scene Construction in vtk.js",
+        "abstract": "Streamline tasks typically require seeded sources, vector field inputs, mapper wiring, and explicit render ordering to avoid empty scenes.",
+        "source": "local-fixture:vtkjs-streamline",
+        "keywords": [
+          "vtk.js",
+          "streamline",
+          "vector field",
+          "seed",
+          "mapper",
+          "render"
+        ]
+      },
+      {
+        "title": "vtk.js Scene Bootstrap with Source Mapper Actor Renderer",
+        "abstract": "A minimal browser scene should create a render window, source, mapper, actor, and then call renderWindow.render() after resetCamera.",
+        "source": "local-fixture:vtkjs-bootstrap",
+        "keywords": [
+          "vtk.js",
+          "renderwindow",
+          "mapper",
+          "actor",
+          "renderer",
+          "scene",
+          "render"
+        ]
+      },
+      {
+        "title": "Benchmark-Oriented vtk.js Validation Cases",
+        "abstract": "Repeatable benchmark cases should cover slice, volume rendering, streamline, and mag-iso scenes with stable artifact expectations.",
+        "source": "local-fixture:vtkjs-benchmark",
+        "keywords": [
+          "vtk.js",
+          "benchmark",
+          "slice",
+          "volume",
+          "streamline",
+          "mag-iso",
+          "artifacts"
+        ]
+      },
+      {
+        "title": "Recovering from Missing Canvas during vtk.js Verification",
+        "abstract": "A missing canvas usually indicates that render bootstrap failed, so retry with a minimal sphere scene before reintroducing custom logic.",
+        "source": "local-fixture:vtkjs-missing-canvas",
+        "keywords": [
+          "vtk.js",
+          "canvas",
+          "repair",
+          "sphere",
+          "render",
+          "verification"
+        ]
+      }
+    ]
+  },
+  "store": {
+    "storeId": "local-research-rag-store",
+    "documentCount": 6,
+    "chunkCount": 6,
+    "documents": [
+      {
+        "documentId": "doc-local-fixture-vtkjs-benchmark-benchmark-oriented",
+        "paperMeta": {
+          "title": "Benchmark-Oriented vtk.js Validation Cases",
+          "abstract": "Repeatable benchmark cases should cover slice, volume rendering, streamline, and mag-iso scenes with stable artifact expectations.",
+          "source": "local-fixture:vtkjs-benchmark",
+          "keywords": [
+            "vtk.js",
+            "benchmark",
+            "slice",
+            "volume",
+            "streamline",
+            "mag-iso",
+            "artifacts"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-benchmark-oriented-vtk-js-validation-cases-1",
+            "text": "Repeatable benchmark cases should cover slice, volume rendering, streamline, and mag-iso scenes with stable artifact expectations.",
+            "keywords": [
+              "artifact",
+              "benchmark",
+              "cases",
+              "cover",
+              "expectations."
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      },
+      {
+        "documentId": "doc-local-fixture-vtkjs-bootstrap-vtk-js-scene-boots",
+        "paperMeta": {
+          "title": "vtk.js Scene Bootstrap with Source Mapper Actor Renderer",
+          "abstract": "A minimal browser scene should create a render window, source, mapper, actor, and then call renderWindow.render() after resetCamera.",
+          "source": "local-fixture:vtkjs-bootstrap",
+          "keywords": [
+            "vtk.js",
+            "renderwindow",
+            "mapper",
+            "actor",
+            "renderer",
+            "scene",
+            "render"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-vtk-js-scene-bootstrap-with-source-mapper-actor-",
+            "text": "A minimal browser scene should create a render window, source, mapper, actor, and then call renderWindow.render() after resetCamera.",
+            "keywords": [
+              "actor",
+              "after",
+              "browser",
+              "call",
+              "create"
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      },
+      {
+        "documentId": "doc-local-fixture-vtkjs-browser-evidence-browser-evi",
+        "paperMeta": {
+          "title": "Browser Evidence for vtk.js Validation with Playwright",
+          "abstract": "Reliable vtk.js validation should capture screenshots, browser console logs, page errors, and a render verification verdict from Playwright.",
+          "source": "local-fixture:vtkjs-browser-evidence",
+          "keywords": [
+            "vtk.js",
+            "playwright",
+            "browser",
+            "verification",
+            "artifacts",
+            "screenshot",
+            "console"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-browser-evidence-for-vtk-js-validation-with-play",
+            "text": "Reliable vtk.js validation should capture screenshots, browser console logs, page errors, and a render verification verdict from Playwright.",
+            "keywords": [
+              "browser",
+              "capture",
+              "console",
+              "errors",
+              "logs"
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      },
+      {
+        "documentId": "doc-local-fixture-vtkjs-missing-canvas-recovering-fr",
+        "paperMeta": {
+          "title": "Recovering from Missing Canvas during vtk.js Verification",
+          "abstract": "A missing canvas usually indicates that render bootstrap failed, so retry with a minimal sphere scene before reintroducing custom logic.",
+          "source": "local-fixture:vtkjs-missing-canvas",
+          "keywords": [
+            "vtk.js",
+            "canvas",
+            "repair",
+            "sphere",
+            "render",
+            "verification"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-recovering-from-missing-canvas-during-vtk-js-ver",
+            "text": "A missing canvas usually indicates that render bootstrap failed, so retry with a minimal sphere scene before reintroducing custom logic.",
+            "keywords": [
+              "before",
+              "bootstrap",
+              "canvas",
+              "custom",
+              "failed"
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      },
+      {
+        "documentId": "doc-local-fixture-vtkjs-missing-runtime-repairing-mi",
+        "paperMeta": {
+          "title": "Repairing Missing vtk Runtime in Browser Validation",
+          "abstract": "When the browser reports vtk is not defined, inject the vtk.js browser bundle before the module script and keep the runtime bootstrap minimal.",
+          "source": "local-fixture:vtkjs-missing-runtime",
+          "keywords": [
+            "vtk.js",
+            "repair",
+            "vtk is not defined",
+            "runtime",
+            "browser",
+            "script"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-repairing-missing-vtk-runtime-in-browser-validat",
+            "text": "When the browser reports vtk is not defined, inject the vtk.js browser bundle before the module script and keep the runtime bootstrap minimal.",
+            "keywords": [
+              "browser",
+              "before",
+              "bootstrap",
+              "bundle",
+              "defined"
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      },
+      {
+        "documentId": "doc-local-fixture-vtkjs-streamline-streamline-and-ve",
+        "paperMeta": {
+          "title": "Streamline and Vector Field Scene Construction in vtk.js",
+          "abstract": "Streamline tasks typically require seeded sources, vector field inputs, mapper wiring, and explicit render ordering to avoid empty scenes.",
+          "source": "local-fixture:vtkjs-streamline",
+          "keywords": [
+            "vtk.js",
+            "streamline",
+            "vector field",
+            "seed",
+            "mapper",
+            "render"
+          ]
+        },
+        "chunks": [
+          {
+            "id": "chunk-streamline-and-vector-field-scene-construction-i",
+            "text": "Streamline tasks typically require seeded sources, vector field inputs, mapper wiring, and explicit render ordering to avoid empty scenes.",
+            "keywords": [
+              "avoid",
+              "empty",
+              "explicit",
+              "field",
+              "inputs"
+            ]
+          }
+        ],
+        "ingestedAt": "2026-04-17T13:31:36.748Z"
+      }
+    ]
+  },
+  "queryResult": {
+    "query": "Generate a vtk.js volume scene that is easy to repair if browser validation reports missing canvas or runtime errors vtk.js Repair-Aware Volume Task Emphasize failure-aware structure, explicit mapper setup, and deterministic render ordering.",
+    "matches": [
+      {
+        "chunk": {
+          "id": "chunk-browser-evidence-for-vtk-js-validation-with-play",
+          "text": "Reliable vtk.js validation should capture screenshots, browser console logs, page errors, and a render verification verdict from Playwright.",
+          "keywords": [
+            "browser",
+            "capture",
+            "console",
+            "errors",
+            "logs"
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-browser-evidence-browser-evi",
+        "title": "Browser Evidence for vtk.js Validation with Playwright",
+        "score": 9
+      },
+      {
+        "chunk": {
+          "id": "chunk-streamline-and-vector-field-scene-construction-i",
+          "text": "Streamline tasks typically require seeded sources, vector field inputs, mapper wiring, and explicit render ordering to avoid empty scenes.",
+          "keywords": [
+            "avoid",
+            "empty",
+            "explicit",
+            "field",
+            "inputs"
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-streamline-streamline-and-ve",
+        "title": "Streamline and Vector Field Scene Construction in vtk.js",
+        "score": 6
+      },
+      {
+        "chunk": {
+          "id": "chunk-vtk-js-scene-bootstrap-with-source-mapper-actor-",
+          "text": "A minimal browser scene should create a render window, source, mapper, actor, and then call renderWindow.render() after resetCamera.",
+          "keywords": [
+            "actor",
+            "after",
+            "browser",
+            "call",
+            "create"
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-bootstrap-vtk-js-scene-boots",
+        "title": "vtk.js Scene Bootstrap with Source Mapper Actor Renderer",
+        "score": 6
+      },
+      {
+        "chunk": {
+          "id": "chunk-recovering-from-missing-canvas-during-vtk-js-ver",
+          "text": "A missing canvas usually indicates that render bootstrap failed, so retry with a minimal sphere scene before reintroducing custom logic.",
+          "keywords": [
+            "before",
+            "bootstrap",
+            "canvas",
+            "custom",
+            "failed"
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-missing-canvas-recovering-fr",
+        "title": "Recovering from Missing Canvas during vtk.js Verification",
+        "score": 5
+      },
+      {
+        "chunk": {
+          "id": "chunk-repairing-missing-vtk-runtime-in-browser-validat",
+          "text": "When the browser reports vtk is not defined, inject the vtk.js browser bundle before the module script and keep the runtime bootstrap minimal.",
+          "keywords": [
+            "browser",
+            "before",
+            "bootstrap",
+            "bundle",
+            "defined"
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-missing-runtime-repairing-mi",
+        "title": "Repairing Missing vtk Runtime in Browser Validation",
+        "score": 5
+      },
+      {
+        "chunk": {
+          "id": "chunk-benchmark-oriented-vtk-js-validation-cases-1",
+          "text": "Repeatable benchmark cases should cover slice, volume rendering, streamline, and mag-iso scenes with stable artifact expectations.",
+          "keywords": [
+            "artifact",
+            "benchmark",
+            "cases",
+            "cover",
+            "expectations."
+          ]
+        },
+        "documentId": "doc-local-fixture-vtkjs-benchmark-benchmark-oriented",
+        "title": "Benchmark-Oriented vtk.js Validation Cases",
+        "score": 2
+      }
+    ],
+    "store": {
+      "storeId": "local-research-rag-store",
+      "documentCount": 6,
+      "chunkCount": 6
+    }
+  },
+  "contextPack": {
+    "contextPackId": "ctx-generate-a-vtk-js-volume-scene-that-is-easy-to-r",
+    "query": "Generate a vtk.js volume scene that is easy to repair if browser validation reports missing canvas or runtime errors vtk.js Repair-Aware Volume Task Emphasize failure-aware structure, explicit mapper setup, and deterministic render ordering.",
+    "summary": "Prepared 6 snippets from 6 document(s).",
+    "citations": [
+      {
+        "title": "Browser Evidence for vtk.js Validation with Playwright",
+        "documentId": "doc-local-fixture-vtkjs-browser-evidence-browser-evi",
+        "chunkId": "chunk-browser-evidence-for-vtk-js-validation-with-play",
+        "score": 9
+      },
+      {
+        "title": "Streamline and Vector Field Scene Construction in vtk.js",
+        "documentId": "doc-local-fixture-vtkjs-streamline-streamline-and-ve",
+        "chunkId": "chunk-streamline-and-vector-field-scene-construction-i",
+        "score": 6
+      },
+      {
+        "title": "vtk.js Scene Bootstrap with Source Mapper Actor Renderer",
+        "documentId": "doc-local-fixture-vtkjs-bootstrap-vtk-js-scene-boots",
+        "chunkId": "chunk-vtk-js-scene-bootstrap-with-source-mapper-actor-",
+        "score": 6
+      },
+      {
+        "title": "Recovering from Missing Canvas during vtk.js Verification",
+        "documentId": "doc-local-fixture-vtkjs-missing-canvas-recovering-fr",
+        "chunkId": "chunk-recovering-from-missing-canvas-during-vtk-js-ver",
+        "score": 5
+      },
+      {
+        "title": "Repairing Missing vtk Runtime in Browser Validation",
+        "documentId": "doc-local-fixture-vtkjs-missing-runtime-repairing-mi",
+        "chunkId": "chunk-repairing-missing-vtk-runtime-in-browser-validat",
+        "score": 5
+      },
+      {
+        "title": "Benchmark-Oriented vtk.js Validation Cases",
+        "documentId": "doc-local-fixture-vtkjs-benchmark-benchmark-oriented",
+        "chunkId": "chunk-benchmark-oriented-vtk-js-validation-cases-1",
+        "score": 2
+      }
+    ],
+    "snippets": [
+      "Reliable vtk.js validation should capture screenshots, browser console logs, page errors, and a render verification verdict from Playwright.",
+      "Streamline tasks typically require seeded sources, vector field inputs, mapper wiring, and explicit render ordering to avoid empty scenes.",
+      "A minimal browser scene should create a render window, source, mapper, actor, and then call renderWindow.render() after resetCamera.",
+      "A missing canvas usually indicates that render bootstrap failed, so retry with a minimal sphere scene before reintroducing custom logic.",
+      "When the browser reports vtk is not defined, inject the vtk.js browser bundle before the module script and keep the runtime bootstrap minimal.",
+      "Repeatable benchmark cases should cover slice, volume rendering, streamline, and mag-iso scenes with stable artifact expectations."
+    ]
+  },
+  "recommendedPatterns": [
+    "Retrieve mapper plus transfer-function setup before generating volume scenes.",
+    "Expect screenshot, console log, page error log, and a structured render verdict.",
+    "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+    "Seed streamline scenes explicitly and confirm vector-field inputs before validation.",
+    "Build the scene in source -> mapper -> actor -> renderer order.",
+    "Always call renderer.resetCamera() before renderWindow.render()."
+  ],
+  "failureFixPairs": [
+    "If volume output is blank, verify transfer-function and camera-reset steps before deeper repair.",
+    "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+    "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+    "If validation fails early, retry with the minimal full-screen bootstrap scene first.",
+    "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+    "If the canvas is missing, reduce the page to a known-good bootstrap scene and compare new artifacts."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-pro-rendering-mag-iso-benchmark",
+  "track": "prompt-sample-pro",
+  "slug": "rendering-mag-iso-benchmark",
+  "title": "vtk.js Mag-Iso Benchmark Prompt",
+  "goal": "Generate and validate a vtk.js mag-iso scene with browser evidence and benchmark-ready structure",
+  "abstract": "The task should preserve iso-surface intent, stay deterministic, and keep the artifact contract ready for benchmark comparison.",
+  "body": "Treat the generated candidate as a corpus seed that should later support repair-loop updates and benchmark comparison.",
+  "difficulty": "advanced",
+  "tags": [
+    "mag-iso",
+    "benchmark",
+    "artifact-contract"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample-pro\\rendering-mag-iso-benchmark\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-mag-iso-scene-wit.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "briefId": "vtkjs-brief-generate-and-validate-a-vtk-js-volume-rendering-",
+  "query": "Generate and validate a vtk.js volume rendering scene with browser evidence vtk.js Volume Baseline Keep the volume task deterministic while making transfer-function intent explicit for later upgrades.",
+  "templateId": "vtkjs_scene_validation",
+  "sceneKind": "volume",
+  "contextSummary": "Prepared 6 snippets from 6 document(s).",
+  "recommendedPatterns": [
+    "Expect screenshot, console log, page error log, and a structured render verdict.",
+    "Treat browser evidence as the acceptance contract for vtk.js scene validation.",
+    "Inject the vtk.js browser bundle before any module script that references global vtk.",
+    "Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval.",
+    "Retrieve mapper plus transfer-function setup before generating volume scenes.",
+    "Seed streamline scenes explicitly and confirm vector-field inputs before validation."
+  ],
+  "failureFixPairs": [
+    "If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command.",
+    "When the page says vtk is not defined, restore the runtime script include before changing scene logic.",
+    "Capture artifact expectations per benchmark case so later eval output stays comparable.",
+    "If volume output is blank, verify transfer-function and camera-reset steps before deeper repair.",
+    "If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair.",
+    "If validation fails early, retry with the minimal full-screen bootstrap scene first."
+  ],
+  "generationPrompt": "Generate vtk.js code for the requested scene while preserving a deterministic browser-validation path. Scene kind: volume. Use these retrieval-backed patterns: Expect screenshot, console log, page error log, and a structured render verdict. | Treat browser evidence as the acceptance contract for vtk.js scene validation. | Inject the vtk.js browser bundle before any module script that references global vtk. | Use slice, volume, streamline, and mag-iso as the benchmark backbone for vtk.js eval. | Retrieve mapper plus transfer-function setup before generating volume scenes. | Seed streamline scenes explicitly and confirm vector-field inputs before validation.. Avoid regressions captured by these failure-fix hints: If artifacts are missing, rerun the canonical Docker workflow instead of improvising a different browser command. | When the page says vtk is not defined, restore the runtime script include before changing scene logic. | Capture artifact expectations per benchmark case so later eval output stays comparable. | If volume output is blank, verify transfer-function and camera-reset steps before deeper repair. | If streamline output is empty, inspect seed generation and pipeline ordering before general browser repair. | If validation fails early, retry with the minimal full-screen bootstrap scene first.. Acceptance contract: The scene should create a visible canvas during browser verification. | The script should end with renderer.resetCamera() followed by renderWindow.render(). | Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png. | The browser console and page error logs should stay free of runtime errors. | The generated volume workflow should make mapper plus transfer-function setup explicit..",
+  "starterScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.08, 0.1, 0.14],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\n// Replace this bootstrap with real volume data, transfer functions, and a volume mapper.\nrenderer.resetCamera();\nrenderWindow.render();\n",
+  "acceptanceChecks": [
+    "The scene should create a visible canvas during browser verification.",
+    "The script should end with renderer.resetCamera() followed by renderWindow.render().",
+    "Browser evidence should include render-verification.json, browser-console.json, page-errors.json, and render-screenshot.png.",
+    "The browser console and page error logs should stay free of runtime errors.",
+    "The generated volume workflow should make mapper plus transfer-function setup explicit."
+  ]
+}

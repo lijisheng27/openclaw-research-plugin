@@ -1,0 +1,38 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-rendering-sphere-baseline",
+  "track": "prompt-sample",
+  "slug": "rendering-sphere-baseline",
+  "title": "vtk.js Sphere Baseline",
+  "goal": "Generate and validate a vtk.js sphere scene with browser evidence",
+  "abstract": "Keep the scene minimal, deterministic, and compatible with the canonical browser-validation workflow.",
+  "difficulty": "starter",
+  "tags": [
+    "generic",
+    "baseline",
+    "browser-validation"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ],
+  "latestValidation": {
+    "updatedAt": "2026-04-17T14:50:34.490Z",
+    "verdict": "accepted",
+    "canvasFound": true,
+    "consoleErrorCount": 0,
+    "pageErrorCount": 0,
+    "artifactComparisonImproved": false,
+    "repairCategory": "page_runtime_error",
+    "promotedToStable": true,
+    "nextWorkflowInputPath": "validation/next-phase5-workflow-input.json"
+  },
+  "stableRevision": {
+    "promotedAt": "2026-04-17T14:50:34.490Z",
+    "verdict": "accepted",
+    "source": "validation/next-phase5-workflow-input.json",
+    "stableArtifactSummaryPath": "validation/accepted/stable-artifacts-summary.json"
+  }
+}

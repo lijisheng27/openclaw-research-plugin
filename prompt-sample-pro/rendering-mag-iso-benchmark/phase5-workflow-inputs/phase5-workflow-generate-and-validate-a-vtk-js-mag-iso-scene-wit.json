@@ -1,0 +1,11 @@
+{
+  "goal": "Generate and validate a vtk.js mag-iso scene with browser evidence and benchmark-ready structure",
+  "title": "vtk.js Mag-Iso Benchmark Prompt",
+  "abstract": "The task should preserve iso-surface intent, stay deterministic, and keep the artifact contract ready for benchmark comparison.",
+  "body": "Treat the generated candidate as a corpus seed that should later support repair-loop updates and benchmark comparison.",
+  "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>\n",
+  "script": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.09, 0.1, 0.15],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\nconst source = vtk.Filters.Sources.vtkConeSource.newInstance({\n  height: 1.0,\n  radius: 0.3,\n  resolution: 42,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();",
+  "artifactRoot": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\rendering-mag-iso-benchmark",
+  "environmentProfile": "node-vtk",
+  "requestedRuntime": "docker"
+}

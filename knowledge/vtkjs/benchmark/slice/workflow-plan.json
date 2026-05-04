@@ -1,0 +1,14 @@
+{
+  "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-",
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+  "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\benchmark-eval\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-slice-scene-with-.json",
+  "expectedOutputs": [
+    "docker-result.json",
+    "workspace/artifacts/render-verification.json",
+    "workspace/artifacts/browser-console.json",
+    "workspace/artifacts/page-errors.json",
+    "workspace/artifacts/render-screenshot.png"
+  ]
+}

@@ -1,0 +1,672 @@
+{
+  "selection": {
+    "selectionId": "template-generate-and-validate-a-vtk-js-sphere-scene-with",
+    "phase": "phase-5",
+    "templateId": "vtkjs_scene_validation",
+    "templateLabel": "vtk.js Scene Validation",
+    "goal": "Generate and validate a vtk.js sphere scene with browser evidence",
+    "matchedSignals": [
+      "vtk",
+      "vtk.js",
+      "render",
+      "renderer",
+      "renderwindow",
+      "mapper",
+      "actor",
+      "scene",
+      "canvas"
+    ],
+    "rationale": [
+      "The request contains vtk.js render-pipeline signals, so the default path should stay on the node-vtk environment.",
+      "This template is designed to feed the existing Docker validation workflow while reserving the Phase 5 upgrade path for real browser rendering checks."
+    ],
+    "environmentProfile": "node-vtk",
+    "codeLanguage": "typescript",
+    "requestedRuntime": "docker",
+    "validationStrategy": "vtkjs-render-contract",
+    "recommendedInputs": [
+      "A natural-language scene goal with pipeline stages such as source, mapper, actor, and renderer.",
+      "Optional generated HTML or TypeScript code to validate inside the Docker workflow.",
+      "Any expected screenshot, canvas, or artifact assertions for later Playwright-based verification.",
+      "Matched signal: vtk",
+      "Matched signal: vtk.js",
+      "Matched signal: render",
+      "Matched signal: renderer"
+    ],
+    "nextTools": [
+      "research_vtkjs_loop",
+      "vtkjs_knowledge_ingest",
+      "vtkjs_retrieve_context",
+      "vtkjs_generation_brief",
+      "vtkjs_code_generate",
+      "vtkjs_corpus_build",
+      "vtkjs_corpus_update",
+      "vtkjs_eval_runner",
+      "phase5_agent_exec_recipe",
+      "vtkjs_render_verify",
+      "vtkjs_repair_once",
+      "phase5_repair_workflow_plan",
+      "research_phase5_repair_loop",
+      "phase3_agent_exec_recipe",
+      "phase3_local_workflow_plan",
+      "docker_sandbox_run"
+    ]
+  },
+  "originalRouteKind": "vtkjs_render_verify",
+  "maxRounds": 2,
+  "evidenceSummary": {
+    "summaryId": "evidence-baseline-accepted-0-0",
+    "label": "baseline",
+    "verdict": "accepted",
+    "canvasFound": true,
+    "consoleErrorCount": 0,
+    "pageErrorCount": 0,
+    "hasRuntimeReferenceIssue": false,
+    "evidenceSources": [
+      "render-report",
+      "browser-console",
+      "page-errors"
+    ]
+  },
+  "repair": {
+    "repairId": "repair-generate-and-validate-a-vtk-js-sphere-scene-with",
+    "category": "page_runtime_error",
+    "shouldRetry": true,
+    "findings": [
+      "The page emitted at least one runtime exception during browser verification.",
+      "Render verification evidence was included in the repair decision.",
+      "Browser console evidence was included in the repair decision.",
+      "Page error evidence was included in the repair decision."
+    ],
+    "rationale": [
+      "A runtime exception blocks render completion even when the HTML structure is otherwise valid."
+    ],
+    "repairedHtml": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>",
+    "repairedScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.1, 0.12, 0.18],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\nconst source = vtk.Filters.Sources.vtkSphereSource.newInstance({\n  radius: 0.5,\n  thetaResolution: 32,\n  phiResolution: 32,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\n\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();\n",
+    "retryHints": [
+      "Inspect the page error log and retry with a smaller verified scene pipeline."
+    ]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "repair": {
+        "repairId": "repair-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "category": "page_runtime_error",
+        "shouldRetry": true,
+        "findings": [
+          "The page emitted at least one runtime exception during browser verification.",
+          "Render verification evidence was included in the repair decision.",
+          "Browser console evidence was included in the repair decision.",
+          "Page error evidence was included in the repair decision."
+        ],
+        "rationale": [
+          "A runtime exception blocks render completion even when the HTML structure is otherwise valid."
+        ],
+        "repairedHtml": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>",
+        "repairedScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.1, 0.12, 0.18],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\nconst source = vtk.Filters.Sources.vtkSphereSource.newInstance({\n  radius: 0.5,\n  thetaResolution: 32,\n  phiResolution: 32,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\n\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();\n",
+        "retryHints": [
+          "Inspect the page error log and retry with a smaller verified scene pipeline."
+        ]
+      },
+      "evidenceSummary": {
+        "summaryId": "evidence-baseline-accepted-0-0",
+        "label": "baseline",
+        "verdict": "accepted",
+        "canvasFound": true,
+        "consoleErrorCount": 0,
+        "pageErrorCount": 0,
+        "hasRuntimeReferenceIssue": false,
+        "evidenceSources": [
+          "render-report",
+          "browser-console",
+          "page-errors"
+        ]
+      },
+      "retryLocalWorkflowPlan": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "retryRenderVerify": {
+        "verificationId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "pageUrl": "http://127.0.0.1:4173/index.html",
+        "canvasSelector": "canvas",
+        "timeoutMs": 15000,
+        "sandboxRun": {
+          "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+          "status": "passed",
+          "runtime": "docker-adapter-dry-run",
+          "stdout": [
+            "Prepared a browser-based vtk.js render verification bundle at C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace.",
+            "docker build -t openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+            "docker run --rm -v C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace -w /workspace openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local bash -lc mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "stderr": [],
+          "producedArtifacts": [
+            "workspace/index.html",
+            "workspace/generated/render-verify.mjs",
+            "workspace/package.json",
+            "workspace/.dockerignore",
+            "workspace/Dockerfile",
+            "stdout.log",
+            "stderr.log",
+            "workspace/artifacts/render-verification.json",
+            "workspace/generated/app.js"
+          ],
+          "exitCode": 0
+        },
+        "manifest": {
+          "manifestId": "manifest-render-verify-generate-and-validate-a-vtk-js-sph",
+          "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+          "runtime": "docker-adapter-dry-run",
+          "environmentProfile": "node-vtk",
+          "image": "mcr.microsoft.com/playwright:v1.54.0-noble",
+          "imageTag": "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+          "command": [
+            "bash",
+            "-lc",
+            "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "dockerfilePath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace\\Dockerfile",
+          "buildContextDir": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+          "dockerBuildCommand": [
+            "docker",
+            "build",
+            "-t",
+            "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace"
+          ],
+          "dockerCommand": [
+            "docker",
+            "run",
+            "--rm",
+            "-v",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace",
+            "-w",
+            "/workspace",
+            "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+            "bash",
+            "-lc",
+            "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json",
+          "runnerCommand": [
+            "pnpm",
+            "docker:sandbox",
+            "--",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+          ],
+          "workingDirectory": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+          "createdAt": "2026-04-17T14:50:34.464Z",
+          "artifacts": [
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/index.html",
+              "summary": "Browser entry HTML for vtk.js render verification",
+              "sha256": "6df030d6d54f91aa8bae02231af76b4960c889349fe1c8ceff7681af65aa1066"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/generated/render-verify.mjs",
+              "summary": "Playwright-based render verification runner",
+              "sha256": "2b6faf2d67b46b90c1ea02c34b27d9d17ca3104fd9aa1ec8cf0c307700e0fd96"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/package.json",
+              "summary": "Render verification package manifest",
+              "sha256": "2c55403113a405e3ec05dc99c70460157fe2cd38dce19a07acc9c6e5916cb845"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/.dockerignore",
+              "summary": "Render verification Docker ignore rules",
+              "sha256": "7baa630fc84172babd9dc5e81f27b9798d8f671bf0e7c0b7775df3492f7e4a48"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/Dockerfile",
+              "summary": "Render verification Dockerfile",
+              "sha256": "bc49b7cbd709f4f356b8c03e43a6128aceb7a752191a65ddcdc85244cb429612"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "stdout",
+              "path": "stdout.log",
+              "summary": "Render verification planner stdout log",
+              "sha256": "d71f85d1f4b5a8e7407c9109348fea352ef7d2058406088ffe1802dfbb08956b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "stderr",
+              "path": "stderr.log",
+              "summary": "Render verification planner stderr log",
+              "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "report",
+              "path": "workspace/artifacts/render-verification.json",
+              "summary": "Render verification report placeholder",
+              "sha256": "0a6179386d846c3497c6d2c66e501bd1f48c65efd7676e89b89c472e5311486b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/generated/app.js",
+              "summary": "Browser module script for vtk.js render verification",
+              "sha256": "5a94de24eebf5e273cf3d9d26db663d0b56cf56fe317a3650e6045011f6fc743"
+            }
+          ],
+          "policy": {
+            "policyId": "policy-docker-generate-and-validate-a-vtk-js-sphere-sce",
+            "requestedRuntime": "docker",
+            "selectedRuntime": "docker",
+            "allowed": true,
+            "requiresStrongSandbox": false,
+            "blockedReasons": [],
+            "guidance": [
+              "Use Docker adapter when available; otherwise emit a dry-run manifest for reproducibility."
+            ]
+          }
+        },
+        "expectedArtifacts": [
+          "artifacts/render-verification.json",
+          "artifacts/browser-console.json",
+          "artifacts/page-errors.json",
+          "artifacts/render-screenshot.png"
+        ],
+        "runnerCommand": [
+          "pnpm",
+          "docker:sandbox",
+          "--",
+          "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "repair": {
+        "repairId": "repair-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "category": "unknown",
+        "shouldRetry": true,
+        "findings": [
+          "The evidence does not match a known high-confidence vtk.js repair pattern."
+        ],
+        "rationale": [
+          "Use a conservative retry that restores a known-good vtk.js browser bootstrap."
+        ],
+        "repairedHtml": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>vtk.js Generated Scene</title>\n    <link rel=\"icon\" href=\"data:,\" />\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/node_modules/vtk.js/vtk.js\"></script>\n    <script type=\"module\" src=\"./generated/app.js\"></script>\n  </body>\n</html>",
+        "repairedScript": "const fullScreenRenderer = vtk.Rendering.Misc.vtkFullScreenRenderWindow.newInstance({\n  background: [0.1, 0.12, 0.18],\n});\nconst renderer = fullScreenRenderer.getRenderer();\nconst renderWindow = fullScreenRenderer.getRenderWindow();\n\nconst source = vtk.Filters.Sources.vtkSphereSource.newInstance({\n  radius: 0.5,\n  thetaResolution: 32,\n  phiResolution: 32,\n});\nconst mapper = vtk.Rendering.Core.vtkMapper.newInstance();\nmapper.setInputConnection(source.getOutputPort());\n\nconst actor = vtk.Rendering.Core.vtkActor.newInstance();\nactor.setMapper(mapper);\nrenderer.addActor(actor);\nrenderer.resetCamera();\nrenderWindow.render();\n",
+        "retryHints": [
+          "Retry with the minimal verified scene and compare the new browser artifacts against the previous run."
+        ]
+      },
+      "retryLocalWorkflowPlan": {
+        "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "templateId": "vtkjs_scene_validation",
+        "routeKind": "vtkjs_render_verify",
+        "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+        "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+        "expectedOutputs": [
+          "docker-result.json",
+          "workspace/artifacts/render-verification.json",
+          "workspace/artifacts/browser-console.json",
+          "workspace/artifacts/page-errors.json",
+          "workspace/artifacts/render-screenshot.png"
+        ]
+      },
+      "retryRenderVerify": {
+        "verificationId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+        "pageUrl": "http://127.0.0.1:4173/index.html",
+        "canvasSelector": "canvas",
+        "timeoutMs": 15000,
+        "sandboxRun": {
+          "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+          "status": "passed",
+          "runtime": "docker-adapter-dry-run",
+          "stdout": [
+            "Prepared a browser-based vtk.js render verification bundle at C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace.",
+            "docker build -t openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+            "docker run --rm -v C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace -w /workspace openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local bash -lc mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "stderr": [],
+          "producedArtifacts": [
+            "workspace/index.html",
+            "workspace/generated/render-verify.mjs",
+            "workspace/package.json",
+            "workspace/.dockerignore",
+            "workspace/Dockerfile",
+            "stdout.log",
+            "stderr.log",
+            "workspace/artifacts/render-verification.json",
+            "workspace/generated/app.js"
+          ],
+          "exitCode": 0
+        },
+        "manifest": {
+          "manifestId": "manifest-render-verify-generate-and-validate-a-vtk-js-sph",
+          "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+          "runtime": "docker-adapter-dry-run",
+          "environmentProfile": "node-vtk",
+          "image": "mcr.microsoft.com/playwright:v1.54.0-noble",
+          "imageTag": "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+          "command": [
+            "bash",
+            "-lc",
+            "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "dockerfilePath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace\\Dockerfile",
+          "buildContextDir": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+          "dockerBuildCommand": [
+            "docker",
+            "build",
+            "-t",
+            "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace"
+          ],
+          "dockerCommand": [
+            "docker",
+            "run",
+            "--rm",
+            "-v",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace",
+            "-w",
+            "/workspace",
+            "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+            "bash",
+            "-lc",
+            "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+          ],
+          "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json",
+          "runnerCommand": [
+            "pnpm",
+            "docker:sandbox",
+            "--",
+            "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+          ],
+          "workingDirectory": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+          "createdAt": "2026-04-17T14:50:34.485Z",
+          "artifacts": [
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/index.html",
+              "summary": "Browser entry HTML for vtk.js render verification",
+              "sha256": "6df030d6d54f91aa8bae02231af76b4960c889349fe1c8ceff7681af65aa1066"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/generated/render-verify.mjs",
+              "summary": "Playwright-based render verification runner",
+              "sha256": "2b6faf2d67b46b90c1ea02c34b27d9d17ca3104fd9aa1ec8cf0c307700e0fd96"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/package.json",
+              "summary": "Render verification package manifest",
+              "sha256": "2c55403113a405e3ec05dc99c70460157fe2cd38dce19a07acc9c6e5916cb845"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/.dockerignore",
+              "summary": "Render verification Docker ignore rules",
+              "sha256": "7baa630fc84172babd9dc5e81f27b9798d8f671bf0e7c0b7775df3492f7e4a48"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/Dockerfile",
+              "summary": "Render verification Dockerfile",
+              "sha256": "bc49b7cbd709f4f356b8c03e43a6128aceb7a752191a65ddcdc85244cb429612"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "stdout",
+              "path": "stdout.log",
+              "summary": "Render verification planner stdout log",
+              "sha256": "d71f85d1f4b5a8e7407c9109348fea352ef7d2058406088ffe1802dfbb08956b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "stderr",
+              "path": "stderr.log",
+              "summary": "Render verification planner stderr log",
+              "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "report",
+              "path": "workspace/artifacts/render-verification.json",
+              "summary": "Render verification report placeholder",
+              "sha256": "0a6179386d846c3497c6d2c66e501bd1f48c65efd7676e89b89c472e5311486b"
+            },
+            {
+              "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+              "kind": "source",
+              "path": "workspace/generated/app.js",
+              "summary": "Browser module script for vtk.js render verification",
+              "sha256": "5a94de24eebf5e273cf3d9d26db663d0b56cf56fe317a3650e6045011f6fc743"
+            }
+          ],
+          "policy": {
+            "policyId": "policy-docker-generate-and-validate-a-vtk-js-sphere-sce",
+            "requestedRuntime": "docker",
+            "selectedRuntime": "docker",
+            "allowed": true,
+            "requiresStrongSandbox": false,
+            "blockedReasons": [],
+            "guidance": [
+              "Use Docker adapter when available; otherwise emit a dry-run manifest for reproducibility."
+            ]
+          }
+        },
+        "expectedArtifacts": [
+          "artifacts/render-verification.json",
+          "artifacts/browser-console.json",
+          "artifacts/page-errors.json",
+          "artifacts/render-screenshot.png"
+        ],
+        "runnerCommand": [
+          "pnpm",
+          "docker:sandbox",
+          "--",
+          "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+        ]
+      }
+    }
+  ],
+  "retryLocalWorkflowPlan": {
+    "workflowId": "phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with",
+    "templateId": "vtkjs_scene_validation",
+    "routeKind": "vtkjs_render_verify",
+    "inputPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+    "shellCommand": "pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-sphere-scene-with.json",
+    "expectedOutputs": [
+      "docker-result.json",
+      "workspace/artifacts/render-verification.json",
+      "workspace/artifacts/browser-console.json",
+      "workspace/artifacts/page-errors.json",
+      "workspace/artifacts/render-screenshot.png"
+    ]
+  },
+  "retryRenderVerify": {
+    "verificationId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+    "pageUrl": "http://127.0.0.1:4173/index.html",
+    "canvasSelector": "canvas",
+    "timeoutMs": 15000,
+    "sandboxRun": {
+      "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+      "status": "passed",
+      "runtime": "docker-adapter-dry-run",
+      "stdout": [
+        "Prepared a browser-based vtk.js render verification bundle at C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace.",
+        "docker build -t openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+        "docker run --rm -v C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace -w /workspace openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local bash -lc mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+      ],
+      "stderr": [],
+      "producedArtifacts": [
+        "workspace/index.html",
+        "workspace/generated/render-verify.mjs",
+        "workspace/package.json",
+        "workspace/.dockerignore",
+        "workspace/Dockerfile",
+        "stdout.log",
+        "stderr.log",
+        "workspace/artifacts/render-verification.json",
+        "workspace/generated/app.js"
+      ],
+      "exitCode": 0
+    },
+    "manifest": {
+      "manifestId": "manifest-render-verify-generate-and-validate-a-vtk-js-sph",
+      "runId": "render-verify-generate-and-validate-a-vtk-js-sphere-scene-with",
+      "runtime": "docker-adapter-dry-run",
+      "environmentProfile": "node-vtk",
+      "image": "mcr.microsoft.com/playwright:v1.54.0-noble",
+      "imageTag": "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+      "command": [
+        "bash",
+        "-lc",
+        "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+      ],
+      "dockerfilePath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace\\Dockerfile",
+      "buildContextDir": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+      "dockerBuildCommand": [
+        "docker",
+        "build",
+        "-t",
+        "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+        "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace"
+      ],
+      "dockerCommand": [
+        "docker",
+        "run",
+        "--rm",
+        "-v",
+        "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace:/workspace",
+        "-w",
+        "/workspace",
+        "openclaw-research-plugin/render-verify-generate-and-validate-a-vtk-js-sphere-scene-with:local",
+        "bash",
+        "-lc",
+        "mkdir -p /workspace && cp -R /opt/render-verify/. /workspace && cd /workspace && node generated/render-verify.mjs"
+      ],
+      "manifestPath": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json",
+      "runnerCommand": [
+        "pnpm",
+        "docker:sandbox",
+        "--",
+        "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+      ],
+      "workingDirectory": "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\workspace",
+      "createdAt": "2026-04-17T14:50:34.464Z",
+      "artifacts": [
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/index.html",
+          "summary": "Browser entry HTML for vtk.js render verification",
+          "sha256": "6df030d6d54f91aa8bae02231af76b4960c889349fe1c8ceff7681af65aa1066"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/generated/render-verify.mjs",
+          "summary": "Playwright-based render verification runner",
+          "sha256": "2b6faf2d67b46b90c1ea02c34b27d9d17ca3104fd9aa1ec8cf0c307700e0fd96"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/package.json",
+          "summary": "Render verification package manifest",
+          "sha256": "2c55403113a405e3ec05dc99c70460157fe2cd38dce19a07acc9c6e5916cb845"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/.dockerignore",
+          "summary": "Render verification Docker ignore rules",
+          "sha256": "7baa630fc84172babd9dc5e81f27b9798d8f671bf0e7c0b7775df3492f7e4a48"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/Dockerfile",
+          "summary": "Render verification Dockerfile",
+          "sha256": "bc49b7cbd709f4f356b8c03e43a6128aceb7a752191a65ddcdc85244cb429612"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "stdout",
+          "path": "stdout.log",
+          "summary": "Render verification planner stdout log",
+          "sha256": "d71f85d1f4b5a8e7407c9109348fea352ef7d2058406088ffe1802dfbb08956b"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "stderr",
+          "path": "stderr.log",
+          "summary": "Render verification planner stderr log",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "report",
+          "path": "workspace/artifacts/render-verification.json",
+          "summary": "Render verification report placeholder",
+          "sha256": "0a6179386d846c3497c6d2c66e501bd1f48c65efd7676e89b89c472e5311486b"
+        },
+        {
+          "artifactId": "artifact-c-users-12159-learnclaw-openclaw-research-plugin",
+          "kind": "source",
+          "path": "workspace/generated/app.js",
+          "summary": "Browser module script for vtk.js render verification",
+          "sha256": "5a94de24eebf5e273cf3d9d26db663d0b56cf56fe317a3650e6045011f6fc743"
+        }
+      ],
+      "policy": {
+        "policyId": "policy-docker-generate-and-validate-a-vtk-js-sphere-sce",
+        "requestedRuntime": "docker",
+        "selectedRuntime": "docker",
+        "allowed": true,
+        "requiresStrongSandbox": false,
+        "blockedReasons": [],
+        "guidance": [
+          "Use Docker adapter when available; otherwise emit a dry-run manifest for reproducibility."
+        ]
+      }
+    },
+    "expectedArtifacts": [
+      "artifacts/render-verification.json",
+      "artifacts/browser-console.json",
+      "artifacts/page-errors.json",
+      "artifacts/render-screenshot.png"
+    ],
+    "runnerCommand": [
+      "pnpm",
+      "docker:sandbox",
+      "--",
+      "C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample\\rendering-sphere-baseline\\render-verify-generate-and-validate-a-vtk-js-sphere-scene-with\\sandbox-manifest.json"
+    ]
+  }
+}

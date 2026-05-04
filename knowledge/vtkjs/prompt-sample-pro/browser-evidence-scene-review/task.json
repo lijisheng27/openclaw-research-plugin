@@ -1,0 +1,22 @@
+{
+  "entryId": "vtkjs-corpus-entry-prompt-sample-pro-browser-evidence-scene-review",
+  "track": "prompt-sample-pro",
+  "slug": "browser-evidence-scene-review",
+  "title": "vtk.js Browser Evidence Review Task",
+  "goal": "Generate and validate a vtk.js scene whose prompt, code, and workflow input are all ready for corpus review",
+  "abstract": "The output should be suitable for prompt-sample-pro storage with stable prompt, retrieval context, starter code, and validation command.",
+  "body": "Assume the sample will be revised over time by OpenClaw through Docker-backed validation and repair updates.",
+  "difficulty": "advanced",
+  "tags": [
+    "review",
+    "corpus",
+    "repair-loop"
+  ],
+  "templateId": "vtkjs_scene_validation",
+  "routeKind": "vtkjs_render_verify",
+  "recommendedCommand": "pnpm phase5:local-workflow -- --input \"C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\knowledge\\vtkjs\\prompt-sample-pro\\browser-evidence-scene-review\\phase5-workflow-input.json\"",
+  "nextActions": [
+    "Run the canonical local workflow command: pnpm phase5:local-workflow -- --input C:\\Users\\12159\\learnClaw\\openclaw-research-plugin\\prompt-sample-pro\\browser-evidence-scene-review\\phase5-workflow-inputs\\phase5-workflow-generate-and-validate-a-vtk-js-scene-whose-promp.json",
+    "Use the returned Phase 5 execution output as the single source of truth for Docker orchestration."
+  ]
+}
